@@ -11,7 +11,7 @@ const TodaySales = () => {
             <div className="flex flex-row gap-2 w-[100px] h-[40px]">
               <div className="w-[20px] h-[40px] bg-red-500" />
               <span className="w-[64px] h-[20px] text-red-400 font-bold">
-                Today's
+                Todays
               </span>
             </div>
             <div className="flex flex-row w-[211px] h-[48px] gap-24">

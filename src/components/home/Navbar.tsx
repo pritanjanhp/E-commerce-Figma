@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { BsCart2 } from "react-icons/bs";
 import { CiHeart, CiSearch } from "react-icons/ci";
@@ -8,18 +9,18 @@ const Navbar = () => {
       <div className="top-[88px] w-[1170px] h-[38px] left-[135px] gap-[148px] flex items-center justify-between mt-5 p-5">
         <h1 className="text-xl font-bold">Exclusive</h1>
         <div className="md:flex gap-8">
-          <a href="/" className="hover:text-gray-600">
+          <Link href="/" className="hover:text-gray-600">
             Home
-          </a>
-          <a href="/contact" className="hover:text-gray-600">
+          </Link>
+          <Link href="/contact" className="hover:text-gray-600">
             Contact
-          </a>
-          <a href="about" className="hover:text-gray-600">
+          </Link>
+          <Link href="about" className="hover:text-gray-600">
             About
-          </a>
-          <a href="/signup" className="hover:text-gray-600">
+          </Link>
+          <Link href="/signup" className="hover:text-gray-600">
             Sign up
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-6">
