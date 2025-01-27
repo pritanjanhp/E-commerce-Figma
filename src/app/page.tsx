@@ -1,10 +1,12 @@
-import Home from "@/components/Home";
+import Home from "@/components/home/Home";
+import Navbar from "@/components/home/Navbar";
+import NavbarDiscount from "@/components/home/NavbarDiscount";
+import Sidebar from "@/components/home/Sidebar";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <h1>Page</h1>
       <Home />
     </div>
   );
