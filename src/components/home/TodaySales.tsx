@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { AiOutlineEye } from "react-icons/ai";
-import { CiHeart, CiStar } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 // import fiveStar from "../../../public/fiveStar.svg";
 
