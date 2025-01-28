@@ -1,6 +1,9 @@
 import Image from "next/image";
 import React from "react";
+import { AiOutlineEye } from "react-icons/ai";
+import { CiHeart, CiStar } from "react-icons/ci";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
+// import fiveStar from "../../../public/fiveStar.svg";
 
 const TodaySales = () => {
   return (
@@ -48,93 +51,213 @@ const TodaySales = () => {
       <div className="h-[43px]" />
 
       <div className="flex flex-row">
-        <div className="w-[1308px] h-[350px] gap-[30px]">
+        <div className="flex flex-row w-[1308px] h-[350px] gap-[30px]">
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5]">
-              <div className="ml-11">
-                <Image src="/s1.png" width={190} height={180} alt="s1.png" />
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+              <div className="absolute top-2 left-2 flex justify-between w-full">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                  -40%
+                </span>
+                <div className="flex flex-col gap-4 items-end mr-4">
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <CiHeart />
+                  </span>
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <AiOutlineEye />
+                  </span>
+                </div>
+              </div>
+              <div className="flex justify-center ">
+                <Image
+                  src="/s1.png"
+                  width={172}
+                  height={152}
+                  alt="s1.png"
+                  className="mt-8"
+                />
               </div>
             </div>
 
-            <div className="w-[201px] h-[84px] gap-8">
+            <div className="w-[201px] h-[84px]">
               <span className="w-[201px] h-[24x] gap-0">
                 HAVIT HV-G92 Gamepad{" "}
               </span>
-              <span className="w-[65px] h-[24px] gap-12">$120 $160 </span>
-              <span className="w-[140px] h-[20px] gap-8">(88)</span>
+              <div className="flex gap-2">
+                <span className="w-[85px] h-[24px] text-red-400">$120 </span>
+                <span className="line-through mr-28">$160</span>
+              </div>
+              <span className="flex w-[140px] h-[20px] gap-[8px]">
+                <Image
+                  src="/stars/fiveStar.svg"
+                  alt="five_star"
+                  width={100}
+                  height={20}
+                  priority
+                />
+                <span className="w-[32px] h-[20px]">(88)</span>
+              </span>
             </div>
           </div>
-        </div>
-        <div className="w-[1308px] h-[350px] gap-[30px]">
+
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5]">
-              <div className="ml-11">
-                <Image src="/s2.png" width={190} height={180} alt="s1.png" />
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+              <div className="absolute top-2 left-2 flex justify-between w-full">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                  -35%
+                </span>
+                <div className="flex flex-col gap-4 items-end mr-4">
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <CiHeart />
+                  </span>
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <AiOutlineEye />
+                  </span>
+                </div>
+              </div>
+              <div className="flex justify-center ">
+                <Image
+                  src="/s2.png"
+                  width={191}
+                  height={101}
+                  alt="s2.png"
+                  className="mt-8"
+                />
+              </div>
+
+              <div className="w-[270px] h-[26px] flex flex-row justify-center items-center top-[209px] gap-[0px] bg-black text-white">
+                <span className="w-[96px] h-[24px]">Add To Cart</span>
               </div>
             </div>
 
-            <div className="w-[201px] h-[84px] gap-8">
+            <div className="w-[201px] h-[84px]">
               <span className="w-[201px] h-[24x] gap-0">
-                HAVIT HV-G92 Gamepad{" "}
+                AK-900 Wired Keyboard
               </span>
-              <span className="w-[65px] h-[24px] gap-12">$120 $160 </span>
-              <span className="w-[140px] h-[20px] gap-8">(88)</span>
+              <div className="flex gap-2">
+                <span className="w-[85px] h-[24px] text-red-400">$960 </span>
+                <span className="line-through mr-28">$1160</span>
+              </div>
+              <span className="w-[140px] h-[20px] gap-8">
+                <span className="flex w-[140px] h-[20px] gap-[8px]">
+                  <Image
+                    src="/stars/fourStar.svg"
+                    alt="Four_star"
+                    width={100}
+                    height={20}
+                    priority
+                  />
+                  <span className="w-[32px] h-[20px]">(75)</span>
+                </span>
+              </span>
             </div>
           </div>
-        </div>
-        <div className="w-[1308px] h-[350px] gap-[30px]">
+
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5]">
-              <div className="ml-11">
-                <Image src="/s3.png" width={190} height={180} alt="s1.png" />
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+              <div className="absolute top-2 left-2 flex justify-between w-full">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                  -40%
+                </span>
+                <div className="flex flex-col gap-4 items-end mr-4">
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <CiHeart />
+                  </span>
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <AiOutlineEye />
+                  </span>
+                </div>
+              </div>
+              <div className="flex justify-center ">
+                <Image
+                  src="/s3.png"
+                  width={190}
+                  height={180}
+                  alt="s3.png"
+                  className="mt-8"
+                />
               </div>
             </div>
 
-            <div className="w-[201px] h-[84px] gap-8">
+            <div className="w-[201px] h-[84px]">
               <span className="w-[201px] h-[24x] gap-0">
-                HAVIT HV-G92 Gamepad{" "}
+                IPS LCD Gaming Monitor
               </span>
-              <span className="w-[65px] h-[24px] gap-12">$120 $160 </span>
-              <span className="w-[140px] h-[20px] gap-8">(88)</span>
+              <div className="flex gap-2">
+                <span className="w-[85px] h-[24px] text-red-400">$370 </span>
+                <span className="line-through mr-28">$400</span>
+              </div>
+              <span className="w-[140px] h-[20px] gap-8">
+                <span className="flex w-[140px] h-[20px] gap-[8px]">
+                  <Image
+                    src="/stars/fiveStar.svg"
+                    alt="five_star"
+                    width={100}
+                    height={20}
+                    priority
+                  />
+                  <span className="w-[32px] h-[20px]">(99)</span>
+                </span>
+              </span>
             </div>
           </div>
-        </div>
 
-        <div className="w-[1308px] h-[350px] gap-[30px]">
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5]">
-              <div className="ml-11">
-                <Image src="/s4.png" width={190} height={180} alt="s1.png" />
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+              <div className="absolute top-2 left-2 flex justify-between w-full">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                  -40%
+                </span>
+                <div className="flex flex-col gap-4 items-end mr-4">
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <CiHeart />
+                  </span>
+                  <span className="bg-white rounded-full p-2 text-xl">
+                    <AiOutlineEye />
+                  </span>
+                </div>
+              </div>
+              <div className="flex justify-center ">
+                <Image
+                  src="/s4.png"
+                  width={190}
+                  height={180}
+                  alt="s4.png"
+                  className="mt-8"
+                />
               </div>
             </div>
 
-            <div className="w-[201px] h-[84px] gap-8">
+            <div className="w-[201px] h-[84px]">
               <span className="w-[201px] h-[24x] gap-0">
-                HAVIT HV-G92 Gamepad{" "}
+                S-Series Comfort Chair
               </span>
-              <span className="w-[65px] h-[24px] gap-12">$120 $160 </span>
-              <span className="w-[140px] h-[20px] gap-8">(88)</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-[1308px] h-[350px] gap-[30px]">
-          <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5]">
-              <div className="ml-11">
-                <Image src="/s1.png" width={190} height={180} alt="s1.png" />
+              <div className="flex gap-2">
+                <span className="w-[85px] h-[24px] text-red-400">$375 </span>
+                <span className="line-through mr-28">$400</span>
               </div>
-            </div>
-
-            <div className="w-[201px] h-[84px] gap-8">
-              <span className="w-[201px] h-[24x] gap-0">
-                HAVIT HV-G92 Gamepad{" "}
+              <span className="w-[140px] h-[20px] gap-8">
+                <span className="flex w-[140px] h-[20px] gap-[8px]">
+                  <Image
+                    src="/stars/fourHalfStar.svg"
+                    alt="4.5_star"
+                    width={100}
+                    height={20}
+                    priority
+                  />
+                  <span className="w-[32px] h-[20px]">(99)</span>
+                </span>
               </span>
-              <span className="w-[65px] h-[24px] gap-12">$120 $160 </span>
-              <span className="w-[140px] h-[20px] gap-8">(88)</span>
             </div>
           </div>
         </div>
+
+        {/* <div className="w-[53px] h-[350px] text-white">hiiii</div>
+
+        <div className="w-[53px] h-[350px] text-white">hiiii</div>
+
+        <div className="w-[53px] h-[350px] text-white">hiiii</div>
+
+        <div className="w-[53px] h-[350px] text-white">hiiii</div> */}
       </div>
     </div>
   );

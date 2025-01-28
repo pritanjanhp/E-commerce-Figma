@@ -1,13 +1,12 @@
 import Image from "next/image";
 import React from "react";
-// import apple from "../../../public/apple.png";
 import { HiArrowSmallRight } from "react-icons/hi2";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Sidebar = () => {
   return (
     <div className="flex items-center justify-around ">
-      <div className="w-[217px] h-[344px] top-[182px] left-[135px] gap-[16px] mr-36">
+      <div className="w-[217px] h-[344px] top-[182px] left-[135px] gap-[16px] mr-56">
         <div className="pt-5 flex flex-col gap-3">
           <a className="flex items-center gap-4 justify-between">
             Woman’s Fashion <MdKeyboardArrowRight />
@@ -25,7 +24,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="flex flex-row w-[892px] h-[344px] top-[182px] left-[413px] gap-[0px] bg-black text-white">
+      <div className="flex flex-row w-[892px] h-[344px] top-[182px] left-[413px] gap-[0px] bg-black text-white mr-48">
         <div className="flex flex-col top-[58px] left-[64px] py-14 px-14">
           <div className="flex w-[190px] h-[49px] top-[58px] left-[64px] gap-[24px]">
             <Image src="/apple.png" alt="apple" width={40} height={49} />
