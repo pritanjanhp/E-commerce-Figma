@@ -430,7 +430,7 @@ const Explore = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center w-[900px] h-[116px]">
+      <div className="flex justify-center items-center w-[900px] h-[116px]mr-32">
         <Link
           href="allProduct"
           className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[0px] rounded-tl-none rounded-tr-[4px] rounded-bl-[4px] rounded-br-sm  bg-[#DB4444] text-center"
