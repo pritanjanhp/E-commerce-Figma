@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
@@ -125,7 +126,9 @@ const TodaySales = () => {
               </div>
 
               <div className="w-[270px] h-[26px] flex flex-row justify-center items-center top-[209px] gap-[0px] bg-black text-white">
-                <span className="w-[96px] h-[24px]">Add To Cart</span>
+                <Link href="/login" className="w-[96px] h-[24px]">
+                  Add To Cart
+                </Link>
               </div>
             </div>
 
