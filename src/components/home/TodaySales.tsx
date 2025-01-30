@@ -7,6 +7,7 @@ import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 // import fiveStar from "../../../public/fiveStar.svg";
 
 const TodaySales = () => {
+  const isLoggedIn = false;
   return (
     <div className="w-[1308px] h-[493px] gap-4 top-[666px] left-[135px]">
       <div className="flex flex-row justify-around w-[1170px] h-[103px] gap-[470px]">
@@ -54,7 +55,7 @@ const TodaySales = () => {
       <div className="flex flex-row">
         <div className="flex flex-row w-[1308px] h-[350px] gap-[30px]">
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group cursor-pointer">
               <div className="absolute top-2 left-2 flex justify-between w-full">
                 <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
                   -40%
@@ -77,6 +78,20 @@ const TodaySales = () => {
                   className="mt-8"
                 />
               </div>
+
+              {isLoggedIn
+                ? <Link
+                    href="/login"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Add to cart
+                  </Link>
+                : <Link
+                    href="/signup"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Login to Add to cart
+                  </Link>}
             </div>
 
             <div className="w-[201px] h-[84px]">
@@ -87,21 +102,23 @@ const TodaySales = () => {
                 <span className="w-[85px] h-[24px] text-red-400">$120 </span>
                 <span className="line-through mr-28">$160</span>
               </div>
-              <span className="flex w-[140px] h-[20px] gap-[8px]">
-                <Image
-                  src="/stars/fiveStar.svg"
-                  alt="five_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[32px] h-[20px]">(88)</span>
-              </span>
+              <div className="w-[140px] h-[20px] gap-8">
+                <span className="flex w-[140px] h-[20px] gap-[8px]">
+                  <Image
+                    src="/stars/fiveStar.svg"
+                    alt="five_star"
+                    width={100}
+                    height={20}
+                    priority
+                  />
+                  <span className="w-[32px] h-[20px]">(88)</span>
+                </span>
+              </div>
             </div>
           </div>
 
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] group relative cursor-pointer">
               <div className="absolute top-2 left-2 flex justify-between w-full">
                 <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
                   -35%
@@ -125,11 +142,21 @@ const TodaySales = () => {
                 />
               </div>
 
-              <div className="w-[270px] h-[26px] flex flex-row justify-center items-center top-[209px] gap-[0px] bg-black text-white">
-                <Link href="/login" className="w-[96px] h-[24px]">
-                  Add To Cart
-                </Link>
-              </div>
+              {/* <div className="group relative"> */}
+              {isLoggedIn
+                ? <Link
+                    href="/login"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white -mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Add to cart
+                  </Link>
+                : <Link
+                    href="/signup"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white -mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Login to Add to cart
+                  </Link>}
+              {/* </div> */}
             </div>
 
             <div className="w-[201px] h-[84px]">
@@ -140,7 +167,7 @@ const TodaySales = () => {
                 <span className="w-[85px] h-[24px] text-red-400">$960 </span>
                 <span className="line-through mr-28">$1160</span>
               </div>
-              <span className="w-[140px] h-[20px] gap-8">
+              <div className="w-[140px] h-[20px] gap-8">
                 <span className="flex w-[140px] h-[20px] gap-[8px]">
                   <Image
                     src="/stars/fourStar.svg"
@@ -151,12 +178,12 @@ const TodaySales = () => {
                   />
                   <span className="w-[32px] h-[20px]">(75)</span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
 
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group cursor-pointer">
               <div className="absolute top-2 left-2 flex justify-between w-full">
                 <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
                   -40%
@@ -179,6 +206,20 @@ const TodaySales = () => {
                   className="mt-8"
                 />
               </div>
+
+              {isLoggedIn
+                ? <Link
+                    href="/login"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black -mt-4 text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Add to cart
+                  </Link>
+                : <Link
+                    href="/signup"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 -mt-4 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Login to Add to cart
+                  </Link>}
             </div>
 
             <div className="w-[201px] h-[84px]">
@@ -205,9 +246,9 @@ const TodaySales = () => {
           </div>
 
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group cursor-pointer">
               <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center items-center justify-center">
                   -40%
                 </span>
                 <div className="flex flex-col gap-4 items-end mr-4">
@@ -228,6 +269,19 @@ const TodaySales = () => {
                   className="mt-8"
                 />
               </div>
+              {isLoggedIn
+                ? <Link
+                    href="/login"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 -mt-16 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Add to cart
+                  </Link>
+                : <Link
+                    href="/signup"
+                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 -mt-16 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    Login to Add to cart
+                  </Link>}
             </div>
 
             <div className="w-[201px] h-[84px]">
@@ -253,14 +307,6 @@ const TodaySales = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="w-[53px] h-[350px] text-white">hiiii</div>
-
-        <div className="w-[53px] h-[350px] text-white">hiiii</div>
-
-        <div className="w-[53px] h-[350px] text-white">hiiii</div>
-
-        <div className="w-[53px] h-[350px] text-white">hiiii</div> */}
       </div>
     </div>
   );
