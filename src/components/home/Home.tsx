@@ -9,24 +9,24 @@ import BestProduct from "./BestSelling";
 import CategoriesBlack from "./CategoriesBlack";
 import Explore from "./Explore";
 import Featured from "./Featured";
-import Delevery from "./Delivery";
+import Delivery from "./Delivery";
 // import Footer from "./Footer";
 import Image from "next/image";
 
 const Home = () => {
   return (
-    <div className="">
+    // <div>
+    <div className="ml-[135px]">
       {/* <NavbarDiscount /> */}
-      <div className="md:flex flex-col gap-10 ml-28 p-4">
-        {/* <div className="md:flex flex-col gap-10 w-full"> */}
+      <div className="md:flex flex-col gap-10 w-full md:justify-around justify-end">
         {/* <Navbar /> */}
         <Sidebar />
         <TodaySales />
 
-        <div className="flex justify-center items-center mr-32">
+        <div className="flex justify-around items-center mr-32">
           <Link
             href="allProduct"
-            className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[10px] rounded-tl-none rounded-tr-[4px] rounded-bl-[4px] rounded-br-sm  bg-[#DB4444] text-center"
+            className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[10px] rounded-tl-none rounded-tr-[4px] rounded-bl-[4px] rounded-br-sm bg-[#DB4444] text-center"
           >
             View All Product
           </Link>
@@ -36,7 +36,7 @@ const Home = () => {
         <CategoriesBlack />
         <Explore />
         <Featured />
-        <Delevery />
+        <Delivery />
 
         {/* w-[46px] h-[46px] top-[5430px] */}
         <div className="relative">

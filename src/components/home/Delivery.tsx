@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Delevery = () => {
+const Delivery = () => {
   return (
     <div className="flex flex-wrap w-[943px] h-[161px] top-[5161px] left-[249px] gap-[88px] ml-28">
       <div className="w-[249px] h-[161px] gap-[24px]">
@@ -77,4 +77,4 @@ const Delevery = () => {
   );
 };
 
-export default Delevery;
+export default Delivery;

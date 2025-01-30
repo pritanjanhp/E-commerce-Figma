@@ -20,11 +20,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
-        <div className="flex flex-col min-h-screen">
+        {/* <div className="flex flex-col min-h-screen"> */}
+          <div>
             <NavbarDiscount/>
-            <div className="ml-24 p-4">
+            {/* <div className="left-[135px] p-4"> */}
               <Navbar />
-            </div>
+            {/* </div> */}
             <div className="h-0 left-[1440px] border-t-[0.5px] opacity-30 border-black" />
           
           <main className="flex-1">
