@@ -6,7 +6,7 @@ import { CiHeart } from "react-icons/ci";
 
 const Explore = () => {
   return (
-    <div className="w-[1170px] h-[1016px] top-[3097px] left-[135px] gap-[60px]">
+    <div className="w-[1170px] h-[1016px] top-[3097px] left-[135px] gap-[60px] gap-y-4">
       <div className="w-[1170px] h-[900px] gap-[60px]">
         <div className="flex flex-row w-[1170px] h-[108px] gap-[672px]">
           <div className="w-[398px] h-[108px] gap-5">
@@ -430,10 +430,10 @@ const Explore = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center w-[900px] h-[116px]mr-32">
+      <div className="flex justify-center w-[900px] h-[116px]m-32">
         <Link
           href="allProduct"
-          className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[0px] rounded-tl-none rounded-tr-[4px] rounded-bl-[4px] rounded-br-sm  bg-[#DB4444] text-center"
+          className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[0px] rounded-tl-none rounded-tr-[4px] rounded-bl-[4px] rounded-br-sm  bg-[#DB4444] text-center ml-56"
         >
           View All Product
         </Link>

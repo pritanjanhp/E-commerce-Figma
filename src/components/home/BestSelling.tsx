@@ -133,7 +133,7 @@ const BestProduct = () => {
                 src="/products/p3.png"
                 width={190}
                 height={180}
-                alt="p1.png"
+                alt="p3.png"
                 className="mt-8"
               />
             </div>
@@ -175,7 +175,7 @@ const BestProduct = () => {
                 src="/products/p4.png"
                 width={190}
                 height={180}
-                alt="p1.png"
+                alt="p4.png"
                 className="mt-8"
               />
             </div>

@@ -1,18 +1,20 @@
 import Image from "next/image";
 import React from "react";
 import { HiArrowSmallRight } from "react-icons/hi2";
-import { MdKeyboardArrowRight } from "react-icons/md";
+// import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Sidebar = () => {
   return (
-    <div className="flex items-center justify-around ">
-      <div className="w-[217px] h-[344px] top-[182px] left-[135px] gap-[16px] mr-56">
-        <div className="pt-5 flex flex-col gap-3">
-          <a className="flex items-center gap-4 justify-between">
-            Woman’s Fashion <MdKeyboardArrowRight />
+    <div className="w-full flex md:justify-around justify-end items-center mt-7 pt-4">
+      <div className="flex w-fit h-[344px] top-[182px] left-[135px] md:gap-[16px] -ml-8">
+        <div className="flex flex-col gap-3">
+          <a className="flex items-center gap-4 justify-between cursor-pointer">
+            Woman’s Fashion
+            <Image src="/extra/right.svg" alt="right" width={24} height={24} />
           </a>
-          <a className="flex items-center gap-4 justify-between">
-            Men’s Fashion <MdKeyboardArrowRight />
+          <a className="flex items-center gap-4 justify-between cursor-pointer">
+            Men’s Fashion
+            <Image src="/extra/right.svg" alt="right" width={24} height={24} />
           </a>
           <a>Electronics</a>
           <a>Home & Lifestyle </a>
@@ -22,6 +24,7 @@ const Sidebar = () => {
           <a>Groceries & Pets</a>
           <a>Health & Beauty</a>
         </div>
+        {/* <div className="w-[384px] h-[0px] top-[142px] left-[368px] gap-0px border-0.5px 0px 0px 0px opacity-30 rotate-90 deg border border-black" /> */}
       </div>
 
       <div className="flex flex-row w-[892px] h-[344px] top-[182px] left-[413px] gap-[0px] bg-black text-white mr-48">
@@ -37,10 +40,16 @@ const Sidebar = () => {
           </div>
 
           <div className="flex flex-row w-[213px] h-[28px] top-[269px] left-[67px] gap-4px py-6">
-            <span className="w-[81px] h-[28px] gap-[4px] underline ">
-              Shop Now{" "}
+            <span className="w-[81px] h-[28px] gap-[4px] underline underline-offset-2">
+              Shop Now
             </span>
             <HiArrowSmallRight className="text-2xl w-[24px] h-[24px] " />
+            <Image
+              src="/arrows/rightArrow.svg"
+              alt="arrow"
+              width={24}
+              height={24}
+            />
           </div>
         </div>
         <div>

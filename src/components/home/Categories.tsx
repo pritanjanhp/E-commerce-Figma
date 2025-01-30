@@ -41,7 +41,7 @@ const Categories = () => {
 
       {/* <div className="w-[1170px] h-[60px]" /> */}
       <div className="flex flex-row w-[1170px] h-[145px] gap-[30px]">
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400">
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
           <Image
             width={56}
             height={56}
@@ -54,7 +54,7 @@ const Categories = () => {
           </span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400">
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
           <Image
             width={56}
             height={56}
@@ -67,7 +67,7 @@ const Categories = () => {
           </span>
         </div>
 
-        <div className="w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none flex flex-col items-center justify-center rounded-br-none rounded-bl-none border border-gray-400">
+        <div className="w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none flex flex-col items-center justify-center rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
           <Image
             width={56}
             height={56}
@@ -80,7 +80,7 @@ const Categories = () => {
           </span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border bg-[#DB4444]">
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
           <Image
             width={56}
             height={56}
@@ -93,7 +93,7 @@ const Categories = () => {
           </span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400">
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
           <Image
             width={56}
             height={56}
@@ -106,7 +106,7 @@ const Categories = () => {
           </span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400">
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border  hover:bg-[#DB4444] border-gray-400">
           <Image
             width={56}
             height={56}
