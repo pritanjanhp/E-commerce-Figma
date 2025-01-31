@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import Navbar from "@/components/home/Navbar";
 import NavbarDiscount from "@/components/home/NavbarDiscount";
 import Footer from "@/components/home/Footer";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Exclusive",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -21,16 +22,15 @@ export default function RootLayout({
       </head>
       <body>
         {/* <div className="flex flex-col min-h-screen"> */}
-          <div>
+          <div className="">
             <NavbarDiscount/>
-            {/* <div className="left-[135px] p-4"> */}
-              <Navbar />
-            {/* </div> */}
+            <Navbar />
             <div className="h-0 left-[1440px] border-t-[0.5px] opacity-30 border-black" />
           
           <main className="flex-1">
             {children}
           </main>
+          <div className="h-[43px]" />
           <Footer/>            
         </div>
       </body>

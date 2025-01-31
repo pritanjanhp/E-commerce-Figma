@@ -12,7 +12,7 @@ const Navbar = () => {
   };
   return (
     <div className="p-4">
-      <div className="w-full h-[38px] flex md:justify-around justify-end items-center">
+      <div className="w-full h-[38px] flex md:justify-around sm:justify-between justify-between items-center">
         <div className="text-xl font-bold overflow-hidden">
           <Link href="/">Exclusive</Link>
         </div>
@@ -43,13 +43,25 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="md:hidden flex items-center" onClick={toggleView}>
-          {/* <Image src="/navbar/menu-icon.svg" alt="menu" width={24} height={24} /> */}
-          Nav buttons
+        <div
+          className="md:hidden flex items-center cursor-pointer"
+          onClick={toggleView}
+        >
+          {/* Nav buttons */}
+          {view
+            ? <div className="">
+                <div className="border border-black w-6 h-0 flex items-center justify-left rotate-45 transition-all duration-300" />
+                <div className="border border-black w-6 h-0 flex items-center justify-left -rotate-45 transition-all duration-300" />
+              </div>
+            : <div className="flex flex-col gap-2">
+                <div className="border border-black w-6 h-0 flex items-center justify-left transition-all duration-300" />
+                <div className="border border-black w-6 h-0 flex items-center justify-left transition-all duration-300" />
+                <div className="border border-black w-6 h-0 flex items-center justify-left transition-all duration-300" />
+              </div>}
         </div>
 
         {view &&
-          <div className="md:hidden absolute top-12 left-0 right-0 bg-white p-4 z-10">
+          <div className="flex flex-col md:hidden absolute sm:w-[200px] w-[200px] top-36 right-0 bg-white gap-3 sm:top-36 md:top-auto p-6 z-10">
             <Link
               href="/"
               className="block py-2 hover:text-gray-600 hover:underline"
@@ -74,9 +86,31 @@ const Navbar = () => {
             >
               Sign up
             </Link>
+            <Link className="flex gap-2" href="/search">
+              <h1>Search</h1>
+              <Image
+                src="/navbar/search1.png"
+                alt="search"
+                width={18}
+                height={18}
+              />
+            </Link>
+            <Link className="flex gap-2" href="/favourite">
+              <h1>Favourite</h1>
+              <Image src="/navbar/fav.svg" alt="fav" width={18} height={18} />
+            </Link>
+            <Link href="/cart" className="flex gap-2">
+              <h1>cart</h1>
+              <Image
+                src="/navbar/cart.svg"
+                alt="cart"
+                width={18}
+                height={18}
+              />{" "}
+            </Link>
           </div>}
 
-        <div className="flex items-center gap-6">
+        <div className="md:flex hidden items-center gap-6 ">
           <div className="flex items-center bg-[#F5F5F5] p-2 rounded-md gap-4">
             <input
               type="text"

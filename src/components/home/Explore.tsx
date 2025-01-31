@@ -31,7 +31,7 @@ const Explore = () => {
                 alt="Left Arrow"
                 width={24}
                 height={24}
-                className="bg-gray-300  rounded-full text-xs"
+                className="bg-gray-300 rounded-full text-xs"
               />
             </div>
             <div className="w-[46px] h-[46px]">
