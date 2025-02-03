@@ -1,5 +1,5 @@
 import Image from "next/image";
-// import Link from "next/link";
+import Link from "next/link";
 import React from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
@@ -58,12 +58,15 @@ const BestSellingProduct = () => {
           <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
             <div className="absolute top-2 right-2 flex flex-col gap-4">
               <div className="flex flex-col gap-4 items-end mr-4">
-                <span className="bg-white rounded-full p-2 text-xl">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
                   <CiHeart />
-                </span>
-                <span className="bg-white rounded-full p-2 text-xl">
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
                   <AiOutlineEye />
-                </span>
+                </div>
               </div>
             </div>
             <div className="flex justify-center">
@@ -103,12 +106,15 @@ const BestSellingProduct = () => {
           <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
             <div className="absolute top-2 right-2 flex flex-col gap-4">
               <div className="flex flex-col gap-4 items-end mr-4">
-                <span className="bg-white rounded-full p-2 text-xl">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
                   <CiHeart />
-                </span>
-                <span className="bg-white rounded-full p-2 text-xl">
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
                   <AiOutlineEye />
-                </span>
+                </div>
               </div>
             </div>
             <div className="flex justify-center">
@@ -145,10 +151,13 @@ const BestSellingProduct = () => {
           <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
             <div className="absolute top-2 right-2 flex flex-col gap-4">
               <div className="flex flex-col gap-4 items-end mr-4">
-                <div className="bg-white rounded-full p-2 text-xl">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
                   <CiHeart />
-                </div>
-                <div className="bg-white rounded-full p-2 text-xl">
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
                   <AiOutlineEye />
                 </div>
               </div>
@@ -186,13 +195,15 @@ const BestSellingProduct = () => {
         <div className="w-full h-[350px] gap-[16px]">
           <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
             <div className="absolute top-2 right-2 flex flex-col gap-4 items-end mr-4">
-              {/* <div className="flex flex-col gap-4 items-end mr-4"> */}
-              <span className="bg-white rounded-full p-2 text-xl">
+              <Link
+                href="/wishlist"
+                className="bg-white rounded-full p-2 text-xl"
+              >
                 <CiHeart />
-              </span>
-              <span className="bg-white rounded-full p-2 text-xl">
+              </Link>
+              <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
                 <AiOutlineEye />
-              </span>
+              </div>
               {/* </div> */}
             </div>
             <div className="flex justify-center">
