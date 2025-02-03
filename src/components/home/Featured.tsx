@@ -35,7 +35,7 @@ const Featured = () => {
             // height={511}
           />
 
-          <div className="absolute bottom-0 left-0 p-[16px] text-white bg-opacity-50 w-full sm:w-[242px] h-[122px] top-[446px] gap-[16px]">
+          <div className="absolute bottom-0 left-0 p-[16px] text-white bg-opacity-50 w-full lg:w-[242px] md:w-[255px] h-[122px] top-[446px] gap-[16px]">
             <span className="block text-lg ">PlayStation 5</span>
             <span className="block text-xs">
               Black and white version of PS5 coming out on sale.
