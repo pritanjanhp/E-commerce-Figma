@@ -1,19 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const CategoriesBlack = () => {
   return (
-    <div className="w-[1170px] h-[500px] top-[2526px] left-[135px] gap-4 bg-[#000000]">
-      <div className="flex">
-        <div className="flex flex-col ml-20 mt-20 gap-7">
-          <span className="w-[90px] h-[20px] text-green-500 top-[69px] left-[56px] font-bold">
+    <div className="w-full md:w-full lg:h-[500px] h-auto gap-4 bg-[#000000] px-4 sm:px-8 md:px-12">
+      <div className="flex flex-col lg:flex-row w-full justify-center items-center gap-4">
+        <div className="flex flex-col mt-20 w-full max-w-xl lg:max-w-none gap-7 justify-center lg:justify-start ">
+          <div className="w-[90px] h-[20px] text-green-500 font-bold">
             Categories
-          </span>
-          <span className="w-[443px] h-[120px] top-[121px] left-[56px] gap-[0px] text-5xl text-white">
+          </div>
+          <div className="lg:w-[443px] w-full h-[120px] lg:text-5xl md:text-4xl sm:text-2xl text-3xl items-center text-white flex lg:justify-start justify-center">
             Enhance Your Music Experience
-          </span>
+          </div>
 
-          <div className="flex flex-row w-[320px] h-[62px] top-[273px] left-[56px] gap-[24px] ">
+          <div className="flex flex-row lg:justify-start w-full gap-[24px] justify-center">
             <div className="flex flex-col w-[62px] h-[62px] bg-white rounded-full items-center justify-center">
               <span>23 </span>
               <span>Hours</span>
@@ -34,16 +35,25 @@ const CategoriesBlack = () => {
             </div>
           </div>
 
-          <div className="w-[171px] h-[56px] top-[375px] left-[56px] p-4 px-12 gap-2.5 rounded-tl-md text-white bg-green-500">
+          {/* <div className="lg:w-[171px] w-full h-[56px] p-4 px-12 gap-2.5 rounded-md text-white bg-green-500 lg:justify-start justify-center">
             <button className="">Buy Now!</button>
+          </div> */}
+
+          <div className="flex lg:justify-start justify-center items-center">
+            <Link
+              href="/cart"
+              className="w-[171px] h-[56px] px-[48px] py-[16px] gap-[10px] rounded-tl-[4px] rounded-tr-[4px] rounded-bl-[4px] rounded-br-sm bg-[#00FF66] hover:bg-green-400 text-white text-center"
+            >
+              Buy Now!
+            </Link>
           </div>
         </div>
 
-        <div>
+        <div className="">
           <Image
-            width={568}
-            height={330}
-            src="/categories/categ.png"
+            width={800}
+            height={620}
+            src="/categories/categ1.png"
             alt="categ_black"
           />
         </div>

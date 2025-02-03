@@ -3,16 +3,16 @@ import React from "react";
 
 const Categories = () => {
   return (
-    <div className="w-[1170px] h-[313px] gap-[60px]">
-      <div className="w-[397px] h-[108px] gap-[20px]">
+    <div className="w-full h-auto gap-[60px] px-4 sm:px-8 md:px-12">
+      <div className="w-full h-[108px] gap-[20px]">
         <div className="flex flex-row gap-4 w-[126px] h-[40px]">
-          <div className="w-[16px] h-[40px] bg-[#DB4444] rounded-sm" />
-          <span className="w-[90px] h-[20px] text-red-400 font-bold">
+          <div className="w-full h-[40px] bg-[#DB4444] rounded-sm" />
+          <span className="w-full h-[20px] text-red-400 font-bold">
             Categories
           </span>
         </div>
-        <div className="flex flex-row place-content-between ">
-          <div className="w-[397px] h-[48px]">
+        <div className="flex flex-row place-content-between">
+          <div className="md:w-[397px] h-auto">
             <span className="font-bold text-2xl">Browse By Category</span>
           </div>
 
@@ -36,12 +36,38 @@ const Categories = () => {
               />
             </div>
           </div> */}
+
+          <div className="flex gap-2 sm:gap-2 w-full sm:w-auto h-auto">
+            {/* <LuArrowLeft className="w-[26px] h-[26px] bg-gray-300 rounded-full text-sm" />
+                <LuArrowRight className="w-[26px] h-[26px] bg-gray-300 rounded-full" /> */}
+
+            <div className="cursor-pointer">
+              <Image
+                src="/arrows/left.png"
+                alt="Left Arrow"
+                width={34}
+                height={34}
+                className="bg-gray-300 rounded-full m-4"
+              />
+            </div>
+            <div className="cursor-pointer">
+              <Image
+                src="/arrows/right.png"
+                alt="right Arrow"
+                width={34}
+                height={34}
+                className="bg-gray-300 rounded-full m-4"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* <div className="w-[1170px] h-[60px]" /> */}
-      <div className="flex flex-row w-[1170px] h-[145px] gap-[30px]">
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
+      {/* 60px */}
+      <div className="h-[40px]" />
+
+      <div className="flex-row w-full text-xs h-auto gap-[30px] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-[4px] border border-gray-400 hover:bg-[#DB4444]">
           <Image
             width={56}
             height={56}
@@ -49,9 +75,7 @@ const Categories = () => {
             className="top-[25px] left-[57px] gap-[0px]"
             alt="phone"
           />
-          <span className="w-[59px] h-[24px] top-[97px] left-[55px] gap-[0px]">
-            Phones
-          </span>
+          <span className="eft-[55px] gap-[0px]">Phones</span>
         </div>
 
         <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
@@ -88,7 +112,7 @@ const Categories = () => {
             alt="camera"
             className="top-[25px] left-[57px] gap-[0px]"
           />{" "}
-          <span className="w-[59px] h-[24px] top-[97px] left-[55px] gap-[0px]">
+          <span className="w-[59px] h-[24px] top-[97px]  text-center left-[55px] gap-[0px]">
             Camera
           </span>
         </div>
@@ -114,7 +138,7 @@ const Categories = () => {
             alt="phone"
             className="top-[25px] left-[57px] gap-[0px]"
           />
-          <span className="w-[59px] h-[24px] top-[97px] left-[55px] gap-[0px]">
+          <span className="w-[59px] h-[24px] top-[97px] text-center gap-[0px]">
             Gaming
           </span>
         </div>

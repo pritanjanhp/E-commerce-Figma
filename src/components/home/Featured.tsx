@@ -3,14 +3,14 @@ import React from "react";
 
 const Featured = () => {
   return (
-    <div className="w-[1170px] h-[768px] top-[4253px] left-[135px] gap-11">
-      <div className="flex flex-row w-[216px] h-[108px] gap-[20px]">
+    <div className="lg:w-[1170px] w-full lg:h-[768px] h-full top-[4253px] left-[135px] gap-11">
+      <div className="flex flex-row lg:w-[216px] lg:h-[108px] w-full h-full gap-[20px]">
         <div className="w-[398px] h-[108px] gap-5">
           <div className="flex flex-row gap-[16px] w-[142px] h-[40px]">
             <div className="w-[20px] h-[40px] bg-[#DB4444] rounded-sm" />
-            <span className="w-[106px] h-[20px] text-red-400 font-bold text-xs">
+            <div className="w-[106px] h-[20px] text-red-400 font-bold">
               Featured
-            </span>
+            </div>
           </div>
 
           <div className="flex flex-row justify-between">
@@ -20,7 +20,7 @@ const Featured = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap w-full max-w-[1170px] h-[600px] gap-[30px] justify-between">
+      <div className="flex flex-wrap w-full lg:w-[1170px] h-full lg:h-[600px] gap-[30px] justify-between">
         {/* <div className="flex w-[1170px] h-[600px] left-[30px] gap-6"> */}
         <div className="w-full sm:w-[570px] h-[600px] left-0 relative bg-black">
           {/* <div className="w-[511px] h-[511px] left-[30px] top-[89px] z-auto"> */}

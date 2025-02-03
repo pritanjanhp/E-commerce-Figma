@@ -3,7 +3,7 @@ import React from "react";
 
 const Delivery = () => {
   return (
-    <div className="flex flex-wrap w-[943px] h-[161px] top-[5161px] left-[249px] gap-[88px] ml-28">
+    <div className="flex flex-wrap w-full h-full gap-[88px] px-4 sm:px-8 md:px-12 justify-center items-center">
       <div className="w-[249px] h-[161px] gap-[24px]">
         <div className="w-[80px] h-[80px] rounded-full relative">
           <div className="w-[40px] h-[40px] top-[20px] left-[70px] items-center justify-center absolute">

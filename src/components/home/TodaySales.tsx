@@ -9,40 +9,39 @@ import { CiHeart } from "react-icons/ci";
 const TodaySales = () => {
   const isLoggedIn = false;
   return (
-    <div className="w-full h-[493px] gap-6 top-[666px] left-[135px]">
-      <div className="flex flex-row justify-around w-[1170px] h-[103px] gap-[470px]">
-        <div className="w-[600px] h-[103px] gap-[87px]">
-          <div className="w-[211px] h-[103px] gap-[24px]">
-            <div className="flex flex-row gap-2 w-[100px] h-[40px]">
-              <div className="w-[20px] h-[40px] bg-red-500 rounded-[4px]" />
-              <span className="text-red-400 font-bold">Todays</span>
-            </div>
-            <div className="flex flex-row w-[211px] h-[48px] gap-24">
-              <span className="text-xl w-[211px] h-[48px]">Flash Sales</span>
-              <div className="flex flex-row justify-between gap-8">
-                {/* <div className="flex flex-col gap-3 mb-36"> */}
-                <div>
-                  <p>Days</p>
-                  <p className="text-2xl font-bold">03</p>
-                </div>
-                <div className="">
-                  <p>Hours</p>
-                  <p className="text-2xl font-bold">23</p>
-                </div>
-                <div>
-                  <p>Minutes</p>
-                  <p className="text-2xl font-bold">19</p>
-                </div>
-                <div>
-                  <p>Seconds</p>
-                  <p className="text-2xl font-bold">56</p>
-                </div>
+    <div className="w-full h-auto gap-6 px-4 sm:px-8 md:px-12">
+      <div className="flex flex-row sm:flex-row justify-around items-center w-full h-auto gap-6 sm:gap-[470px]">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-[87px] sm:w-[600px] w-full">
+          {/* <div className="w-[211px] h-[103px] gap-[24px]"> */}
+          <div className="flex items-center gap-2 sm:w-[100px] h-[40px]">
+            <div className="w-[20px] h-[40px] bg-red-500 rounded-[4px]" />
+            <span className="text-red-400 font-bold">Todays</span>
+          </div>
+          <div className="flex sm:flex-row flex-col sm:w-[211px] sm:h-[48px] gap-4">
+            <span className="text-xl w-[211px] h-[48px]">Flash Sales</span>
+            <div className="flex sm:flex-row flex-col justify-between gap-8 sm:gap-4 w-full">
+              <div>
+                <p>Days</p>
+                <p className="text-2xl font-bold">03</p>
+              </div>
+              <div className="">
+                <p>Hours</p>
+                <p className="text-2xl font-bold">23</p>
+              </div>
+              <div>
+                <p>Minutes</p>
+                <p className="text-2xl font-bold">19</p>
+              </div>
+              <div>
+                <p>Seconds</p>
+                <p className="text-2xl font-bold">56</p>
               </div>
             </div>
           </div>
+          {/* </div> */}
         </div>
 
-        <div className="flex gap-8 w-[100px] h-[46px]">
+        <div className="flex gap-4 sm:gap-4 w-full sm:w-auto justify-center">
           {/* <LuArrowLeft className="w-[26px] h-[26px] bg-gray-300 rounded-full text-sm" />
           <LuArrowRight className="w-[26px] h-[26px] bg-gray-300 rounded-full" /> */}
 
@@ -69,265 +68,263 @@ const TodaySales = () => {
 
       <div className="h-[43px]" />
 
-      <div className="flex flex-row">
-        <div className="flex flex-row w-[1308px] h-[350px] gap-[30px]">
-          <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group">
-              <div className="absolute top-2 left-2 flex justify-between w-full">
-                <div className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center cursor-pointer">
-                  -40%
+      <div className="flex flex-col sm:flex-row w-full justify-between gap-6 sm:gap-[30px]">
+        <div className="w-full sm:w-[270px] h-auto gap-6">
+          <div className="bg-[#f5f5f5] relative group">
+            <div className="absolute top-2 left-2 flex justify-between w-full">
+              <div className="w-[55px] h-[26px] gap-[10px] rounded-[4px] bg-red-500 text-white justify-center text-center cursor-pointer">
+                -40%
+              </div>
+              <div className="flex flex-col gap-4 items-end mr-4">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
+                  <CiHeart />
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                  <AiOutlineEye />
                 </div>
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <div className="bg-white rounded-full p-2 text-xl ">
-                    <Link href="/wishlist">
-                      <CiHeart />
-                    </Link>
-                  </div>
-                  <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/s1.png"
-                  width={172}
-                  height={152}
-                  alt="s1.png"
-                  className="mt-8"
-                />
-              </div>
-
-              {isLoggedIn
-                ? <Link
-                    href="/login"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Add to cart
-                  </Link>
-                : <Link
-                    href="/signup"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Login to Add to cart
-                  </Link>}
-            </div>
-
-            <div className="w-[201px] h-[84px]">
-              <span className="w-[201px] h-[24x] gap-0">
-                HAVIT HV-G92 Gamepad{" "}
-              </span>
-              <div className="flex gap-2">
-                <span className="w-[85px] h-[24px] text-red-400">$120 </span>
-                <span className="line-through mr-28">$160</span>
-              </div>
-              <div className="w-[140px] h-[20px] gap-8">
-                <span className="flex w-[140px] h-[20px] gap-[8px]">
-                  <Image
-                    src="/stars/fiveStar.svg"
-                    alt="five_star"
-                    width={100}
-                    height={20}
-                    priority
-                  />
-                  <span className="w-[32px] h-[20px]">(88)</span>
-                </span>
               </div>
             </div>
+            <div className="flex justify-center">
+              <Image
+                src="/s1.png"
+                width={172}
+                height={152}
+                alt="s1.png"
+                className="mt-8 max-w-full"
+              />
+            </div>
+
+            {isLoggedIn
+              ? <Link
+                  href="/login"
+                  // w-[270px]
+                  className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Add to cart
+                </Link>
+              : <Link
+                  href="/signup"
+                  className="w-full h-[41px] flex justify-center items-center gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Login to Add to cart
+                </Link>}
           </div>
 
-          <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] group relative">
-              <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center cursor-pointer">
-                  -35%
-                </span>
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <Link href="/wishlist">
-                      <CiHeart />
-                    </Link>
-                  </span>
-                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </span>
-                </div>
-              </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/s2.png"
-                  width={191}
-                  height={101}
-                  alt="s2.png"
-                  className="mt-8"
-                />
-              </div>
-
-              {/* <div className="group relative"> */}
-              {isLoggedIn
-                ? <Link
-                    href="/login"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white -mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Add to cart
-                  </Link>
-                : <Link
-                    href="/signup"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white -mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Login to Add to cart
-                  </Link>}
-              {/* </div> */}
+          <div className="w-full mt-4">
+            <span className="w-full gap-0">HAVIT HV-G92 Gamepad </span>
+            <div className="flex gap-2">
+              <span className="text-red-400">$120 </span>
+              <span className="line-through">$160</span>
             </div>
-
-            <div className="w-[201px] h-[84px]">
-              <span className="w-[201px] h-[24x] gap-0">
-                AK-900 Wired Keyboard
-              </span>
-              <div className="flex gap-2">
-                <span className="w-[85px] h-[24px] text-red-400">$960 </span>
-                <span className="line-through mr-28">$1160</span>
-              </div>
-              <div className="w-[140px] h-[20px] gap-8">
-                <span className="flex w-[140px] h-[20px] gap-[8px]">
-                  <Image
-                    src="/stars/fourStar.svg"
-                    alt="Four_star"
-                    width={100}
-                    height={20}
-                    priority
-                  />
-                  <span className="w-[32px] h-[20px]">(75)</span>
-                </span>
-              </div>
+            <div className="flex items-center mt-2 gap-2">
+              {/* <span className="flex w-[140px] h-[20px] gap-[8px]"> */}
+              <Image
+                src="/stars/fiveStar.svg"
+                alt="five_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="">(88)</span>
+              {/* </span> */}
             </div>
           </div>
+        </div>
 
-          <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group">
-              <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center cursor-pointer">
-                  -40%
-                </span>
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <CiHeart />
-                  </span>
-                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </span>
+        <div className="w-full sm:w-[270px] h-auto gap-6">
+          <div className="bg-[#f5f5f5] relative group">
+            <div className="absolute top-2 left-2 flex justify-between w-full">
+              <div className="w-[55px] h-[26px] gap-[10px] rounded-[4px] bg-red-500 text-white justify-center text-center cursor-pointer">
+                -35%
+              </div>
+              <div className="flex flex-col gap-4 items-end mr-4">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
+                  <CiHeart />
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                  <AiOutlineEye />
                 </div>
               </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/s3.png"
-                  width={190}
-                  height={180}
-                  alt="s3.png"
-                  className="mt-8"
-                />
-              </div>
-
-              {isLoggedIn
-                ? <Link
-                    href="/login"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black -mt-4 text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Add to cart
-                  </Link>
-                : <Link
-                    href="/signup"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 -mt-4 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Login to Add to cart
-                  </Link>}
+            </div>
+            <div className="flex justify-center">
+              <Image
+                src="/s2.png"
+                width={172}
+                height={152}
+                alt="s2.png"
+                className="mt-8 max-w-full"
+              />
             </div>
 
-            <div className="w-[201px] h-[84px]">
-              <span className="w-[201px] h-[24x] gap-0">
-                IPS LCD Gaming Monitor
-              </span>
-              <div className="flex gap-2">
-                <span className="w-[85px] h-[24px] text-red-400">$370 </span>
-                <span className="line-through mr-28">$400</span>
-              </div>
-              <span className="w-[140px] h-[20px] gap-8">
-                <span className="flex w-[140px] h-[20px] gap-[8px]">
-                  <Image
-                    src="/stars/fiveStar.svg"
-                    alt="five_star"
-                    width={100}
-                    height={20}
-                    priority
-                  />
-                  <span className="w-[32px] h-[20px]">(99)</span>
-                </span>
-              </span>
-            </div>
+            {isLoggedIn
+              ? <Link
+                  href="/login"
+                  // w-[270px]
+                  className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Add to cart
+                </Link>
+              : <Link
+                  href="/signup"
+                  className="w-full h-[41px] flex justify-center items-center gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Login to Add to cart
+                </Link>}
           </div>
 
-          <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group">
-              <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center items-center justify-center cursor-pointer">
-                  -40%
-                </span>
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <Link href="/wishlist">
-                      <CiHeart />
-                    </Link>
-                  </span>
-                  <span className="bg-white rounded-full p-2 text-xl">
-                    <AiOutlineEye />
-                  </span>
+          <div className="w-full mt-4">
+            <span className="w-full gap-0">AK-900 Wired Keyboard </span>
+            <div className="flex gap-2">
+              <span className="text-red-400">$960 </span>
+              <span className="line-through">$1160</span>
+            </div>
+            <div className="flex items-center mt-2 gap-2">
+              {/* <span className="flex w-[140px] h-[20px] gap-[8px]"> */}
+              <Image
+                src="/stars/fourStar.svg"
+                alt="four_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="">(88)</span>
+              {/* </span> */}
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full sm:w-[270px] h-auto gap-6">
+          <div className="bg-[#f5f5f5] relative group">
+            <div className="absolute top-2 left-2 flex justify-between w-full">
+              <div className="w-[55px] h-[26px] gap-[10px] rounded-[4px] bg-red-500 text-white justify-center text-center cursor-pointer">
+                -30%
+              </div>
+              <div className="flex flex-col gap-4 items-end mr-4">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
+                  <CiHeart />
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                  <AiOutlineEye />
                 </div>
               </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/s4.png"
-                  width={190}
-                  height={180}
-                  alt="s4.png"
-                  className="mt-8"
-                />
-              </div>
-              {isLoggedIn
-                ? <Link
-                    href="/login"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 -mt-16 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Add to cart
-                  </Link>
-                : <Link
-                    href="/signup"
-                    className="w-[270px] h-[41px] flex justify-center items-center top-[209px] gap-0 -mt-16 bg-black text-white  opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  >
-                    Login to Add to cart
-                  </Link>}
             </div>
-            
+            <div className="flex justify-center">
+              <Image
+                src="/s3.png"
+                width={172}
+                height={152}
+                alt="s3.png"
+                className="mt-8 max-w-full"
+              />
+            </div>
 
-            <div className="w-[201px] h-[84px]">
-              <span className="w-[201px] h-[24x] gap-0">
-                S-Series Comfort Chair
-              </span>
-              <div className="flex gap-2">
-                <span className="w-[85px] h-[24px] text-red-400">$375 </span>
-                <span className="line-through mr-28">$400</span>
+            {isLoggedIn
+              ? <Link
+                  href="/login"
+                  // w-[270px]
+                  className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Add to cart
+                </Link>
+              : <Link
+                  href="/signup"
+                  className="w-full h-[41px] flex justify-center items-center gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Login to Add to cart
+                </Link>}
+          </div>
+
+          <div className="w-full mt-4">
+            <span className="w-full gap-0">IPS LCD Gaming Monitor </span>
+            <div className="flex gap-2">
+              <span className="text-red-400">$370</span>
+              <span className="line-through">$4000</span>
+            </div>
+            <div className="flex items-center mt-2 gap-2">
+              {/* <span className="flex w-[140px] h-[20px] gap-[8px]"> */}
+              <Image
+                src="/stars/fiveStar.svg"
+                alt="five_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="">(99)</span>
+              {/* </span> */}
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full sm:w-[270px] h-auto gap-6">
+          <div className="bg-[#f5f5f5] relative group">
+            <div className="absolute top-2 left-2 flex justify-between w-full">
+              <div className="w-[55px] h-[26px] gap-[10px] rounded-[4px] bg-red-500 text-white justify-center text-center cursor-pointer">
+                -25%
               </div>
-              <span className="w-[140px] h-[20px] gap-8">
-                <span className="flex w-[140px] h-[20px] gap-[8px]">
-                  <Image
-                    src="/stars/fourHalfStar.svg"
-                    alt="4.5_star"
-                    width={100}
-                    height={20}
-                    priority
-                  />
-                  <span className="w-[32px] h-[20px]">(99)</span>
-                </span>
-              </span>
+              <div className="flex flex-col gap-4 items-end mr-4">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
+                  <CiHeart />
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                  <AiOutlineEye />
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <Image
+                src="/s4.png"
+                width={137}
+                height={152}
+                alt="s1.png"
+                className="mt-8 max-w-full"
+              />
+            </div>
+
+            {isLoggedIn
+              ? <Link
+                  href="/login"
+                  // w-[270px]
+                  className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Add to cart
+                </Link>
+              : <Link
+                  href="/signup"
+                  className="w-full h-[41px] flex justify-center items-center gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
+                >
+                  Login to Add to cart
+                </Link>}
+          </div>
+
+          <div className="w-full mt-4">
+            <span className="w-full gap-0">S-Series Comfort Chair</span>
+            <div className="flex gap-2">
+              <span className="text-red-400">$375</span>
+              <span className="line-through">$400</span>
+            </div>
+            <div className="flex items-center mt-2 gap-2">
+              {/* <span className="flex w-[140px] h-[20px] gap-[8px]"> */}
+              <Image
+                src="/stars/fourHalfStar.svg"
+                alt="4.5_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="">(99)</span>
+              {/* </span> */}
             </div>
           </div>
         </div>
