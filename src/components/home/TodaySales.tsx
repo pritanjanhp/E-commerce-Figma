@@ -306,6 +306,7 @@ const TodaySales = () => {
                     Login to Add to cart
                   </Link>}
             </div>
+            
 
             <div className="w-[201px] h-[84px]">
               <span className="w-[201px] h-[24x] gap-0">
