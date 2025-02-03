@@ -5,13 +5,11 @@ import Sidebar from "./SidePromo";
 import TodaySales from "./TodaySales";
 import Link from "next/link";
 import Categories from "./Categories";
-
+import BestSellingProduct from "./BestSellingProduct";
 import CategoriesBlack from "./CategoriesBlack";
 import Explore from "./Explore";
 import Featured from "./Featured";
 import Delivery from "./Delivery";
-import Image from "next/image";
-import BestSellingProduct from "./BestSellingProduct";
 
 const Home = () => {
   return (
