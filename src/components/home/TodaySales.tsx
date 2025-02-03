@@ -3,24 +3,22 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
-import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
+// import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 // import fiveStar from "../../../public/fiveStar.svg";
 
 const TodaySales = () => {
   const isLoggedIn = false;
   return (
-    <div className="w-[1308px] h-[493px] gap-4 top-[666px] left-[135px]">
+    <div className="w-full h-[493px] gap-6 top-[666px] left-[135px]">
       <div className="flex flex-row justify-around w-[1170px] h-[103px] gap-[470px]">
         <div className="w-[600px] h-[103px] gap-[87px]">
           <div className="w-[211px] h-[103px] gap-[24px]">
             <div className="flex flex-row gap-2 w-[100px] h-[40px]">
-              <div className="w-[20px] h-[40px] bg-red-500" />
-              <span className="w-[64px] h-[20px] text-red-400 font-bold">
-                Todays
-              </span>
+              <div className="w-[20px] h-[40px] bg-red-500 rounded-[4px]" />
+              <span className="text-red-400 font-bold">Todays</span>
             </div>
             <div className="flex flex-row w-[211px] h-[48px] gap-24">
-              <span className="text-2xl ">Flash Sales</span>
+              <span className="text-xl w-[211px] h-[48px]">Flash Sales</span>
               <div className="flex flex-row justify-between gap-8">
                 {/* <div className="flex flex-col gap-3 mb-36"> */}
                 <div>
@@ -44,9 +42,28 @@ const TodaySales = () => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-8 w-[100px] h-[46px] mt-11">
-          <LuArrowLeft className="w-[26px] h-[26px] bg-gray-300 rounded-full text-sm" />
-          <LuArrowRight className="w-[26px] h-[26px] bg-gray-300 rounded-full" />
+        <div className="flex gap-8 w-[100px] h-[46px]">
+          {/* <LuArrowLeft className="w-[26px] h-[26px] bg-gray-300 rounded-full text-sm" />
+          <LuArrowRight className="w-[26px] h-[26px] bg-gray-300 rounded-full" /> */}
+
+          <div className="cursor-pointer">
+            <Image
+              src="/arrows/left.png"
+              alt="Left Arrow"
+              width={46}
+              height={46}
+              className="bg-gray-300 rounded-full m-4"
+            />
+          </div>
+          <div className="cursor-pointer">
+            <Image
+              src="/arrows/right.png"
+              alt="right Arrow"
+              width={46}
+              height={46}
+              className="bg-gray-300 rounded-full m-4"
+            />
+          </div>
         </div>
       </div>
 
@@ -55,18 +72,20 @@ const TodaySales = () => {
       <div className="flex flex-row">
         <div className="flex flex-row w-[1308px] h-[350px] gap-[30px]">
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group cursor-pointer">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group">
               <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                <div className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center cursor-pointer">
                   -40%
-                </span>
+                </div>
                 <div className="flex flex-col gap-4 items-end mr-4">
-                  <span className="bg-white rounded-full p-2 text-xl">
-                    <CiHeart />
-                  </span>
-                  <span className="bg-white rounded-full p-2 text-xl">
+                  <div className="bg-white rounded-full p-2 text-xl ">
+                    <Link href="/wishlist">
+                      <CiHeart />
+                    </Link>
+                  </div>
+                  <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
                     <AiOutlineEye />
-                  </span>
+                  </div>
                 </div>
               </div>
               <div className="flex justify-center ">
@@ -118,16 +137,18 @@ const TodaySales = () => {
           </div>
 
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] group relative cursor-pointer">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] group relative">
               <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center cursor-pointer">
                   -35%
                 </span>
                 <div className="flex flex-col gap-4 items-end mr-4">
-                  <span className="bg-white rounded-full p-2 text-xl">
-                    <CiHeart />
+                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                    <Link href="/wishlist">
+                      <CiHeart />
+                    </Link>
                   </span>
-                  <span className="bg-white rounded-full p-2 text-xl">
+                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
                     <AiOutlineEye />
                   </span>
                 </div>
@@ -183,16 +204,16 @@ const TodaySales = () => {
           </div>
 
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group cursor-pointer">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group">
               <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center cursor-pointer">
                   -40%
                 </span>
                 <div className="flex flex-col gap-4 items-end mr-4">
-                  <span className="bg-white rounded-full p-2 text-xl">
+                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
                     <CiHeart />
                   </span>
-                  <span className="bg-white rounded-full p-2 text-xl">
+                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
                     <AiOutlineEye />
                   </span>
                 </div>
@@ -246,14 +267,16 @@ const TodaySales = () => {
           </div>
 
           <div className="w-[270px] h-[350] gap-[16px]">
-            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group cursor-pointer">
+            <div className="w-[270px] h-[250px] gap-0 bg-[#f5f5f5] relative group">
               <div className="absolute top-2 left-2 flex justify-between w-full">
-                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center items-center justify-center">
+                <span className="w-[55px] h-[26px] px-[12px] py-[4px] gap-[10px] rounded-tl-[4px] bg-red-500 text-white text-center items-center justify-center cursor-pointer">
                   -40%
                 </span>
                 <div className="flex flex-col gap-4 items-end mr-4">
-                  <span className="bg-white rounded-full p-2 text-xl">
-                    <CiHeart />
+                  <span className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                    <Link href="/wishlist">
+                      <CiHeart />
+                    </Link>
                   </span>
                   <span className="bg-white rounded-full p-2 text-xl">
                     <AiOutlineEye />
@@ -313,10 +336,3 @@ const TodaySales = () => {
 };
 
 export default TodaySales;
-
-// width: 172px;
-// height: 152px;
-// top: 14px;
-// left: 9px;
-// gap: 0px;
-// opacity: 0px;
