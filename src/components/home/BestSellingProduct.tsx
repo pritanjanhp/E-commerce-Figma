@@ -221,7 +221,6 @@ const BestSellingProduct = () => {
             <span className="gap-0">Small BookSelf</span>
             <div className="flex gap-2">
               <span className="text-red-400">$360 </span>
-              {/* <span className="line-through mr-28">$360</span> */}
             </div>
             <span className="flex gap-[8px]">
               <Image
