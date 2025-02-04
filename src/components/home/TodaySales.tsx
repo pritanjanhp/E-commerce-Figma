@@ -3,23 +3,40 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
+import Timer from "./Timer";
 // import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 // import fiveStar from "../../../public/fiveStar.svg";
 
 const TodaySales = () => {
   const isLoggedIn = false;
+  const targetDate = new Date("2025-02-10T00:00:00").getTime();
+
   return (
     <div className="w-full h-auto gap-6 px-4 sm:px-8 md:px-12">
       <div className="flex flex-row sm:flex-row justify-around items-center w-full h-auto gap-6 sm:gap-[470px]">
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-[87px] sm:w-[600px] w-full">
-          {/* <div className="w-[211px] h-[103px] gap-[24px]"> */}
-          <div className="flex items-center gap-2 sm:w-[100px] h-[40px]">
+          <div className="">
+            <div className="flex flex-row gap-4 w-[126px] h-[40px]">
+              <div className="w-[20px] h-[40px] bg-[#DB4444] rounded-[4px]" />
+              <span className="w-full h-[20px] text-red-400 font-bold">
+                Today's
+              </span>
+            </div>
+            <div className="lg:flex lg:flex-row flex flex-col">
+              <span className="text-2xl w-[211px]">Flash Sales</span>
+              <Timer targetDate={targetDate} />
+            </div>
+          </div>
+
+          {/* <div className="flex gap-2 sm:w-[100px] h-[40px]">
             <div className="w-[20px] h-[40px] bg-red-500 rounded-[4px]" />
             <span className="text-red-400 font-bold">Todays</span>
-          </div>
+          </div> */}
+
           <div className="flex sm:flex-row flex-col sm:w-[211px] sm:h-[48px] gap-4">
-            <span className="text-xl w-[211px] h-[48px]">Flash Sales</span>
-            <div className="flex sm:flex-row flex-col justify-between gap-8 sm:gap-4 w-full">
+            {/* <span className="text-xl w-[211px] h-[48px]">Flash Sales</span>
+            <Timer targetDate={targetDate} /> */}
+            {/* <div className="flex sm:flex-row flex-col justify-between gap-8 sm:gap-4 w-full">
               <div>
                 <p>Days</p>
                 <p className="text-2xl font-bold">03</p>
@@ -36,12 +53,11 @@ const TodaySales = () => {
                 <p>Seconds</p>
                 <p className="text-2xl font-bold">56</p>
               </div>
-            </div>
+            </div> */}
           </div>
-          {/* </div> */}
         </div>
 
-        <div className="flex gap-4 sm:gap-4 w-full sm:w-auto justify-center">
+        <div className="flex gap-2 sm:gap-4 w-full sm:w-auto h-auto justify-center">
           {/* <LuArrowLeft className="w-[26px] h-[26px] bg-gray-300 rounded-full text-sm" />
           <LuArrowRight className="w-[26px] h-[26px] bg-gray-300 rounded-full" /> */}
 
@@ -49,8 +65,8 @@ const TodaySales = () => {
             <Image
               src="/arrows/left.png"
               alt="Left Arrow"
-              width={46}
-              height={46}
+              width={34}
+              height={34}
               className="bg-gray-300 rounded-full m-4"
             />
           </div>
@@ -58,8 +74,8 @@ const TodaySales = () => {
             <Image
               src="/arrows/right.png"
               alt="right Arrow"
-              width={46}
-              height={46}
+              width={34}
+              height={34}
               className="bg-gray-300 rounded-full m-4"
             />
           </div>

@@ -3,8 +3,8 @@ import React from "react";
 
 const Featured = () => {
   return (
-    <div className="lg:w-[1170px] w-full lg:h-[768px] h-full top-[4253px] left-[135px] gap-11">
-      <div className="flex flex-row lg:w-[216px] lg:h-[108px] w-full h-full gap-[20px]">
+    <div className="lg:w-[1170px] w-full lg:h-[768px] h-full top-[4253px] left-[135px] gap-11 px-4 sm:px-8 md:px-12">
+      <div className="flex md:flex flex-row lg:w-[216px] lg:h-[108px] w-full h-full gap-[20px]">
         <div className="w-[398px] h-[108px] gap-5">
           <div className="flex flex-row gap-[16px] w-[142px] h-[40px]">
             <div className="w-[20px] h-[40px] bg-[#DB4444] rounded-sm" />

@@ -2,14 +2,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import AccountDropdown from "./AccountDropdown";
 // import { BsCart2 } from "react-icons/bs";
 // import { CiHeart, CiSearch } from "react-icons/ci";
 
 const Navbar = () => {
   const [view, setView] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const toggleView = () => {
     setView(!view);
   };
+
+  const toggleOpen = () => {
+    setIsOpen(prev => !prev);
+  };
+
   return (
     <div className="p-4">
       <div className="w-full h-[38px] flex md:justify-around sm:justify-between justify-between items-center">
@@ -47,7 +55,6 @@ const Navbar = () => {
           className="md:hidden flex items-center cursor-pointer"
           onClick={toggleView}
         >
-          {/* Nav buttons */}
           {view
             ? <div className="">
                 <div className="border border-black w-6 h-0 flex items-center justify-left rotate-45 transition-all duration-300" />
@@ -87,27 +94,37 @@ const Navbar = () => {
               Sign up
             </Link>
             <Link className="flex gap-2" href="/search">
-              <h1>Search</h1>
               <Image
                 src="/navbar/search1.png"
                 alt="search"
                 width={18}
                 height={18}
               />
+              <h1>Search</h1>
             </Link>
             <Link className="flex gap-2" href="/favourite">
-              <h1>Favourite</h1>
               <Image src="/navbar/fav.svg" alt="fav" width={18} height={18} />
+              <h1>Favourite</h1>
             </Link>
             <Link href="/cart" className="flex gap-2">
-              <h1>cart</h1>
               <Image
                 src="/navbar/cart.svg"
                 alt="cart"
                 width={18}
                 height={18}
               />{" "}
+              <h1>cart</h1>
             </Link>
+            <div className="flex gap-2 w-[90px]">
+              {/* <Image
+                src="/navbar/account.svg"
+                alt="account"
+                width={18}
+                height={18}
+              /> */}
+              <AccountDropdown  />
+              <h1>Account</h1>{" "}
+            </div>
           </div>}
 
         <div className="md:flex hidden items-center gap-6 ">
@@ -117,7 +134,6 @@ const Navbar = () => {
               className="bg-[#F5F5F5] text-black md:flex hidden"
               placeholder="what are you lokking for"
             />
-            {/* <CiSearch /> */}
             <Image
               src="/navbar/search1.png"
               alt="search"
@@ -125,10 +141,36 @@ const Navbar = () => {
               height={24}
             />
           </div>
-          <Image src="/navbar/fav.svg" alt="fav" width={32} height={32} />
-          <Image src="/navbar/cart.svg" alt="cart" width={32} height={32} />
-          {/* <CiHeart />
-          <BsCart2 /> */}
+          <Link className="flex gap-2" href="/favourite">
+            <Image src="/navbar/fav.svg" alt="fav" width={32} height={32} />
+          </Link>
+          <Link href="/cart" className="flex gap-2">
+            <Image src="/navbar/cart.svg" alt="cart" width={32} height={32} />
+          </Link>
+
+          <div>
+            <AccountDropdown />
+          </div>
+          {/* <div onClick={toggleOpen}>
+            <Image
+              src="/navbar/account.svg"
+              className="hover:bg-red-500 w-full rounded-full items-center justify-center text-sm"
+              alt="cart"
+              width={32}
+              height={32}
+            />
+
+            {isOpen &&
+              <div className="gap-2 w-[225px] h-[208px] flex flex-col sm:w-[200px] top-36 right-0 sm:top-36 md:top-auto p-6 z-10 backdrop-blur-[150px]">
+                <Link href="/account" className="flex gap-2">
+                  Manage My Account
+                </Link>
+                <Link href="/cart">My Order</Link>
+                <Link href="/cart">My Cancellations</Link>
+                <Link href="/cart">My Reviews</Link>
+                <Link href="/cart">Logout</Link>
+              </div>}
+          </div> */}
         </div>
 
         {/* <div className="w-full h-0 left-[1440px] border-t-[0.5px] opacity-30 border-black" /> */}

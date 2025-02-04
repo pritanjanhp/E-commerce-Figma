@@ -6,7 +6,7 @@ const Categories = () => {
     <div className="w-full h-auto gap-[60px] px-4 sm:px-8 md:px-12">
       <div className="w-full h-[108px] gap-[20px]">
         <div className="flex flex-row gap-4 w-[126px] h-[40px]">
-          <div className="w-full h-[40px] bg-[#DB4444] rounded-sm" />
+          <div className="w-[20px] h-[40px] bg-[#DB4444] rounded-sm" />
           <span className="w-full h-[20px] text-red-400 font-bold">
             Categories
           </span>
@@ -37,7 +37,7 @@ const Categories = () => {
             </div>
           </div> */}
 
-          <div className="flex gap-2 sm:gap-2 w-full sm:w-auto h-auto">
+          <div className="flex gap-2 sm:gap-4 w-full sm:w-auto h-auto justify-center">
             {/* <LuArrowLeft className="w-[26px] h-[26px] bg-gray-300 rounded-full text-sm" />
                 <LuArrowRight className="w-[26px] h-[26px] bg-gray-300 rounded-full" /> */}
 

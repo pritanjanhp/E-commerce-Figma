@@ -1,28 +1,75 @@
+"use client";
+
+import { auth } from "@/firebase";
+import {
+  sendPasswordResetEmail,
+  // sendEmailVerification,
+  signInWithEmailAndPassword
+} from "firebase/auth";
 import Image from "next/image";
-import React from "react";
+// import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter();
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, pwd)
+      .then(userCredential => {
+        setLoading(false);
+        // window.location.href = "/allProduct";
+        router.push("/allProduct");
+      })
+      .catch(error => {
+        setError(error.message);
+        setLoading(false);
+      });
+  };
+
+  // const verifyEmail = () => {
+  //   sendEmailVerification(auth.currentUser).then(() => {
+  //     console.log("email verification is send");
+  //   });
+  // };
+
+  const resetPwd = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("Password reset email sent");
+      })
+      .catch(error => {
+        setError(error.message);
+        alert("error " + error.message);
+      });
+  };
+
   return (
-    <div className="md:flex w-full h-[781px] top-[200px] gap-[129px] mt-11">
-      <div className="w-[805px] h-[781px] rounded-tl-none rounded-tr-[4px] rounded-br-[4px] rounded-bl-none">
+    <div className="flex flex-col md:flex-row w-full lg:w-[1305px] lg:h-[781px] md:h-full sm:w-full sm:h-full md:w-auto gap-x-11 gap-y-11 mt-11 md:gap-y-8">
+      <div className="lg:w-[805px] lg:h-[781px] w-full h-full rounded-md">
         <Image
-          src="/signUpLogin/signUpLogin.jpeg"
+          src="/signUpLogin/signUpLogin1.png"
           alt="sign up"
           width={805}
           height={781}
         />
       </div>
-      <div className="mt-11 gap-[40px]">
-        <form className="w-[371px] h-[326px] gap-[40px]">
-          <div className="flex flex-col w-[370px] h-[230px] gap-[48px]">
-            {/* <div className="flex flex-col gap-[48px]"> */}
-            <div className="flex flex-col w-[345px] h-[78px] gap-[24px]">
-              <span className="w-[345px] h-[30px] font-bold text-3xl">
-                Log in to Exclusive
-              </span>
-              <span className="w-[191px] h-[24px]">
-                Enter your details below
-              </span>
+
+      <div className="lg:mb-20 px-4 sm:px-8 md:px-12 flex items-center justify-center">
+        <form
+          className="flex flex-col lg:w-[371px] lg:h-[530px] md:w-full md:h-full h-[530px] gap-[24px]"
+          onSubmit={handleSignIn}
+        >
+          <div className="flex flex-col gap-[48px]">
+            <div className="flex flex-col gap-[24px]">
+              <span className="font-bold text-3xl">Log in to Exclusive</span>
+              <span className="">Enter your details below</span>
             </div>
 
             <div className="flex flex-col w-[370px] h-[104px] gap-[20px]">
@@ -30,24 +77,37 @@ const Login = () => {
                 type="email"
                 placeholder="email"
                 className="w-[187px] h-[24px] gap-[8px]"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
               <div className="w-[370px] border-b-[2px] h-0 opacity-50" />
               <input
                 type="password"
                 placeholder="password"
                 className="w-[187px] h-[24px] gap-[8px]"
+                value={pwd}
+                onChange={e => setPwd(e.target.value)}
               />
               <div className="w-[370px] border-b-[2px] h-0 opacity-50" />
             </div>
-            {/* </div> */}
+            {error &&
+              <div className="text-[#DB4444] bold italic">
+                {error}{" "}
+              </div>}
           </div>
 
           <div className="flex w-[371px] h-[56px] gap-[87px]">
-            <button className="w-[143px] h-[56px] bg-[#DB4444]">
-              <span className="w-[47px] h-[24px] text-white">Log in</span>
+            <button
+              className="w-[143px] h-[56px] bg-[#DB4444] text-white"
+              onClick={handleSignIn}
+            >
+              Log in
             </button>
+            {/* <button onClick={verifyEmail}>verify</button> */}
             <button className="flex justify-center items-center w-[141px] h-[24px] text-[#DB4444]">
-              <span className="w-[141px] h-[24px]">Forgot Password</span>
+              <div className="w-[141px] h-[24px]" onClick={resetPwd}>
+                Forgot Password
+              </div>
             </button>
           </div>
         </form>

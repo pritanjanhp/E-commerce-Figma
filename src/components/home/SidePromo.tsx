@@ -9,9 +9,9 @@ const Sidebar = () => {
     setView(!view);
   };
   return (
-    <div className="">
-      <div className="w-full flex flex-col md:flex-row md:justify-around justify-between sm:justify-between items-center mt-7 pt-4 gap-4 relative">
-        <div className="md:flex hidden flex-col w-full sm:w-auto top-[182px] left-[135px] md:gap-[16px] gap-3 md:w-[200px] sm:h-auto sm:top-auto md:top-[182px] md:left-[135px] md:justify-between">
+    <div className="px-4 sm:px-8 md:px-12">
+      <div className="w-full h-full flex flex-col md:flex-row md:justify-around justify-between sm:justify-between items-center mt-7 pt-4 gap-4 relative">
+        <div className="md:flex hidden flex-col w-full h-full lg:h-[344px] sm:w-auto top-[182px] left-[135px] md:gap-[16px] gap-3 md:w-[200px] sm:h-auto sm:top-auto md:top-[182px] md:left-[135px] md:justify-between">
           {/* <div className="flex flex-row">  */}
           <a className="flex items-center justify-between cursor-pointer">
             Woman’s Fashion
@@ -50,8 +50,6 @@ const Sidebar = () => {
 
         {view &&
           <div className="md:hidden flex flex-col w-[220px] sm:w-auto left-0 bg-white top-auto gap-3 sm:top-auto md:top-auto md:left-[135px] p-4 z-10 absolute">
-            {/* <div className="flex flex-row">  */}
-
             <a className="flex items-center justify-between cursor-pointer">
               Woman’s Fashion
               <Image
@@ -77,13 +75,11 @@ const Sidebar = () => {
             <a className="cursor-pointer">Baby’s & Toys</a>
             <a className="cursor-pointer">Groceries & Pets</a>
             <a className="cursor-pointer">Health & Beauty</a>
-            {/* </div> */}
-            {/* <div className="w-[384px] h-[0px] top-[142px] left-[368px] gap-0px border-0.5px 0px 0px 0px opacity-30 rotate-90 deg border border-black" /> */}
           </div>}
 
         <div className="md:block w-0 border border-gray-300 md:h-[450px] bg-red-500" />
 
-        <div className="flex flex-col md:flex-row w-full sm:w-full sm:h-full md:w-auto gap-4 bg-black text-white sm:px-4 md:px-14 py-4 md:py-14">
+        <div className="flex flex-col md:flex-row w-full lg:h-[354px] sm:w-full sm:h-full md:w-auto gap-4 bg-black text-white sm:px-4 md:px-14 py-4 md:py-14">
           <div className="sm:flex flex-col gap-6 w-full md:w-[294px] m-2 p-2">
             {/* top-[58px] left-[64px]  */}
             <div className="flex items-center gap-4">
@@ -114,7 +110,6 @@ const Sidebar = () => {
               width={496}
               height={352}
               className="md:w-[496px] md:h-[352px] sm:w-[350px] sm:h-[250px] w-[200px] h-[150px]"
-              // className="w-full max-w-[496px] max-h-[344px] h-auto"
             />
           </div>
 

@@ -1,58 +1,133 @@
+"use client";
+import { auth } from "@/firebase";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  sendEmailVerification,
+  signInWithPopup
+} from "firebase/auth";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const provider = new GoogleAuthProvider();
+  const router = useRouter();
+  
+  const handleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        // console.log("User signed up:", userCredential.user);
+        setLoading(false);
+        // window.location.href = "/account";
+        // <Link href="/account" />;
+        router.push('/account');
+      })
+      .catch(error => {
+        // console.log("Error", error.message);
+        setError(error.message);
+        setLoading(false);
+      });
+  };
+
+  // const verifyEmail = () => {
+  //   sendEmailVerification(auth.currentUser).then(()=> {
+  //     console.log('email verification is send')
+  //   })
+  // }
+
+  const handleGoogleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    signInWithPopup(auth, provider)
+      .then(res => {
+        const credential = GoogleAuthProvider.credentialFromResult(res);
+        const token = credential?.accessToken;
+        // window.location.href='/account'
+        router.push('/account')
+      })
+      .catch(error => {
+        console.log("error is " + error);
+      });
+  };
+
   return (
     <div>
-      {/* <h1>Signup page</h1> */}
-      <div className="flex w-full h-[781px] top-[200px] gap-[129px] mt-11">
-        <div className="w-[805px] h-[781px] rounded-tl-none rounded-tr-md rounded-br-md rounded-bl-none">
+      <div className="flex flex-col md:flex-row w-full lg:w-[1305px] lg:h-[781px] md:h-full sm:w-full sm:h-full md:w-auto gap-x-11 gap-y-11 mt-11 md:gap-y-8">
+        <div className="lg:w-[805px] lg:h-[781px] w-full h-full rounded-md">
           <Image
-            src="/signUpLogin/signUpLogin.jpeg"
+            src="/signUpLogin/signUpLogin1.png"
             alt="sign up"
             width={805}
             height={781}
           />
         </div>
 
-        <div className="m-11">
-          <form className="flex flex-col w-[371px] h-[530px] gap-[48px]">
-            <div className="flex flex-col w-[339px] h-[78px] gap-[24px]">
-              <span className="text-4xl w-[339px] h-[30px]">
-                Create an account
-              </span>
-              <span className="w-[191px] h-[24px]">
-                Enter your details below
-              </span>
+        <div className="lg:mb-20 px-4 sm:px-8 md:px-12 flex items-center justify-center">
+          <form
+            className="flex flex-col lg:w-[371px] lg:h-[530px] md:w-full md:h-full h-[530px] gap-[24px]"
+            onSubmit={handleSignUp}
+          >
+            <div className="flex flex-col gap-[12px]">
+              <span className="text-4xl">Create an account</span>
+              <span className="">Enter your details below</span>
             </div>
 
-            <div className="flex flex-col w-[371px] h-[404px] gap-[40px]">
-              <div className="flex flex-col w-[370px] h-[176px] gap-[40px]">
+            <div className="flex flex-col gap-[40px]">
+              <div className="flex flex-col gap-[30px]">
                 <input
                   type="text"
                   placeholder="Name"
-                  className="border-b-[2px] w-[370px] h-[32px] gap-[8px]"
+                  className="border-b-[2px] w-[370px] h-[32px]"
                 />
                 <input
                   type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                   placeholder="Email Address"
-                  className="border-b-[2px] w-[370px] h-[32px] gap-[8px]"
+                  className="border-b-[2px] w-[370px] h-[32px]"
                 />
                 <input
                   type="password"
                   placeholder="Password"
-                  className="border-b-[2px] w-[370px] h-[32px] gap-[8px]"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  className="border-b-[2px] w-[370px] h-[32px]"
                 />
               </div>
-              <div className="w-[371px] h-[188px] gap-[16px]">
-                <div className="bg-[#DB4444] w-[371px] h-[56px] p-[16px] px-[122px] gap-[10px] rounded-tl-[4px] ">
-                  <button className="text-white">Create account</button>
+              {error &&
+                <div className="text-red-500 bold italic">
+                  {error}
+                </div>}
+
+              <div className="flex flex-col gap-[16px]">
+                <div className="bg-[#DB4444] p-[16px] px-[122px] w-[371px] h-[56px] gap-[10px] rounded-[4px] ">
+                  <button
+                    className="text-white"
+                    type="submit"
+                    onClick={handleSignUp}
+                    disabled={loading}
+                  >
+                    {loading ? "Creating..." : "Create account"}
+                  </button>
+                  
                 </div>
 
-                <div className="flex flex-col w-[371px] h-[116px] gap-[32px]">
-                  <div className="w-[371px] h-[56px] p-[16px] px-[86px] gap-[10px] rounded-tl-[4px] border border-b-[3px] rounded-[1px]">
-                    <button className="bg-white flex flex-row gap-2">
+                <div className="flex flex-col gap-[32px]">
+                  <div className="p-[16px] px-[86px] gap-[10px] rounded-[4px] border border-b-[3px]">
+                    <button
+                      className="bg-white flex flex-row gap-2"
+                      onClick={handleGoogleSignUp}
+                    >
                       <Image
                         src="/extra/google.svg"
                         alt="google"
@@ -62,13 +137,13 @@ const Signup = () => {
                     </button>
                   </div>
 
-                  <div className="flex ml-20 w-[248px] h-[28px] gap-[16px]">
-                    <button className="w-[185px] h-[24px] opacity-70">
+                  <div className="flex ml-20 gap-[16px]">
+                    <button className="opacity-70">
                       Already have an account?
                     </button>
-                    <span className="underline underline-offset-4 w-[47px] h-[28px] gap-[4px] opacity-80">
+                    <div className="underline underline-offset-4 gap-[4px] opacity-80">
                       <Link href="/login">Log in</Link>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>

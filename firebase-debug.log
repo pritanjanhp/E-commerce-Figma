@@ -1,0 +1,74 @@
+[debug] [2025-02-04T09:47:55.434Z] ----------------------------------------------------------------------
+[debug] [2025-02-04T09:47:55.445Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-02-04T09:47:55.446Z] CLI Version:   13.29.3
+[debug] [2025-02-04T09:47:55.446Z] Platform:      win32
+[debug] [2025-02-04T09:47:55.446Z] Node Version:  v20.17.0
+[debug] [2025-02-04T09:47:55.446Z] Time:          Tue Feb 04 2025 15:17:55 GMT+0530 (India Standard Time)
+[debug] [2025-02-04T09:47:55.446Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-04T09:47:55.768Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-04T09:47:55.769Z] > authorizing via signed-in user (pritanjanbaranwal03.hp@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\PRITANJAN BARANWAL\Desktop\nextJs\e-commerce-figma
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-02-04T09:48:07.792Z] Using project from CLI flag: exclusive-ecomerce-nextjs
+[debug] [2025-02-04T09:48:07.794Z] Checked if tokens are valid: false, expires at: 1738654076890
+[debug] [2025-02-04T09:48:07.795Z] Checked if tokens are valid: false, expires at: 1738654076890
+[debug] [2025-02-04T09:48:07.795Z] > refreshing access token with scopes: []
+[debug] [2025-02-04T09:48:07.798Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-02-04T09:48:07.798Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-02-04T09:48:08.131Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-02-04T09:48:08.132Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-02-04T09:48:08.144Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/exclusive-ecomerce-nextjs [none]
+[debug] [2025-02-04T09:48:09.471Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/exclusive-ecomerce-nextjs 200
+[debug] [2025-02-04T09:48:09.472Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/exclusive-ecomerce-nextjs {"projectId":"exclusive-ecomerce-nextjs","projectNumber":"845311553074","displayName":"Exclusive-ecomerce-nextJs","name":"projects/exclusive-ecomerce-nextjs","resources":{"hostingSite":"exclusive-ecomerce-nextjs"},"state":"ACTIVE","etag":"1_95bcc71e-5247-459d-8555-997682f1fa57"}
+[info] i  Using project exclusive-ecomerce-nextjs (Exclusive-ecomerce-nextJs) 
+[info] 
+=== Firestore Setup
+[debug] [2025-02-04T09:48:09.481Z] Checked if tokens are valid: true, expires at: 1738666087132
+[debug] [2025-02-04T09:48:09.482Z] Checked if tokens are valid: true, expires at: 1738666087132
+[debug] [2025-02-04T09:48:09.482Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/exclusive-ecomerce-nextjs/services/firestore.googleapis.com [none]
+[debug] [2025-02-04T09:48:09.482Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/exclusive-ecomerce-nextjs/services/firestore.googleapis.com x-goog-quota-user=projects/exclusive-ecomerce-nextjs
+[debug] [2025-02-04T09:48:11.376Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/exclusive-ecomerce-nextjs/services/firestore.googleapis.com 200
+[debug] [2025-02-04T09:48:11.377Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/exclusive-ecomerce-nextjs/services/firestore.googleapis.com [omitted]
+[debug] [2025-02-04T09:48:11.377Z] Checked if tokens are valid: true, expires at: 1738666087132
+[debug] [2025-02-04T09:48:11.377Z] Checked if tokens are valid: true, expires at: 1738666087132
+[debug] [2025-02-04T09:48:11.378Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/exclusive-ecomerce-nextjs/databases/(default) [none]
+[debug] [2025-02-04T09:48:11.640Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/exclusive-ecomerce-nextjs/databases/(default) 200
+[debug] [2025-02-04T09:48:11.641Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/exclusive-ecomerce-nextjs/databases/(default) {"name":"projects/exclusive-ecomerce-nextjs/databases/(default)","uid":"e6357208-93db-42c0-a134-9f5ac2b93269","createTime":"2025-02-04T06:29:24.271192Z","updateTime":"2025-02-04T06:29:24.271192Z","locationId":"asia-south2","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2025-02-04T08:48:11.867326Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","etag":"IJmN2cHeqYsDMPz+6MWyqYsD"}
+[debug] [2025-02-04T09:48:11.641Z] database_type: FIRESTORE_NATIVE
+[debug] [2025-02-04T09:48:11.641Z] database_type: FIRESTORE_NATIVE
+[debug] [2025-02-04T09:48:11.642Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-04T09:48:11.643Z] > authorizing via signed-in user (pritanjanbaranwal03.hp@gmail.com)
+[debug] [2025-02-04T09:48:11.643Z] [iam] checking project exclusive-ecomerce-nextjs for permissions ["firebase.projects.get"]
+[debug] [2025-02-04T09:48:11.644Z] Checked if tokens are valid: true, expires at: 1738666087132
+[debug] [2025-02-04T09:48:11.644Z] Checked if tokens are valid: true, expires at: 1738666087132
+[debug] [2025-02-04T09:48:11.644Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/exclusive-ecomerce-nextjs:testIamPermissions [none]
+[debug] [2025-02-04T09:48:11.645Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/exclusive-ecomerce-nextjs:testIamPermissions x-goog-quota-user=projects/exclusive-ecomerce-nextjs
+[debug] [2025-02-04T09:48:11.645Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/exclusive-ecomerce-nextjs:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-02-04T09:48:13.194Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/exclusive-ecomerce-nextjs:testIamPermissions 200
+[debug] [2025-02-04T09:48:13.195Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/exclusive-ecomerce-nextjs:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
