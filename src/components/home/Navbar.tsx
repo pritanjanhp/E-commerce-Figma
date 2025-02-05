@@ -122,7 +122,7 @@ const Navbar = () => {
                 width={18}
                 height={18}
               /> */}
-              <AccountDropdown  />
+              <AccountDropdown />
               <h1>Account</h1>{" "}
             </div>
           </div>}

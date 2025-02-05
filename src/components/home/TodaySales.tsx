@@ -1,16 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
-import Timer from "./Timer";
-// import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
-// import fiveStar from "../../../public/fiveStar.svg";
+import Timer from "./TimerSales";
+import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
+import fiveStar from "../../../public/fiveStar.svg";
+import { auth } from "@/firebase";
 
 const TodaySales = () => {
-  const isLoggedIn = false;
-  const targetDate = new Date("2025-02-10T00:00:00").getTime();
+  const [isLoggedIn, setIsLoggedIn] = useState(auth.currentUser);
 
+  // const isLoggedIn = false;
+  const targetDate = new Date("2025-02-28T00:00:00").getTime();
+
+  if (isLoggedIn === null) {
+    <Link href="/signup" />;
+  }
   return (
     <div className="w-full h-auto gap-6 px-4 sm:px-8 md:px-12">
       <div className="flex flex-row sm:flex-row justify-around items-center w-full h-auto gap-6 sm:gap-[470px]">
@@ -23,7 +31,7 @@ const TodaySales = () => {
               </span>
             </div>
             <div className="lg:flex lg:flex-row flex flex-col">
-              <span className="text-2xl w-[211px]">Flash Sales</span>
+              {/* <span className="text-2xl w-[211px]">Flash Sales</span>  */}
               <Timer targetDate={targetDate} />
             </div>
           </div>
@@ -58,9 +66,6 @@ const TodaySales = () => {
         </div>
 
         <div className="flex gap-2 sm:gap-4 w-full sm:w-auto h-auto justify-center">
-          {/* <LuArrowLeft className="w-[26px] h-[26px] bg-gray-300 rounded-full text-sm" />
-          <LuArrowRight className="w-[26px] h-[26px] bg-gray-300 rounded-full" /> */}
-
           <div className="cursor-pointer">
             <Image
               src="/arrows/left.png"
@@ -115,7 +120,7 @@ const TodaySales = () => {
 
             {isLoggedIn
               ? <Link
-                  href="/login"
+                  href="/allProduct"
                   // w-[270px]
                   className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
                 >

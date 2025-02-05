@@ -1,4 +1,5 @@
 "use client";
+
 import { auth } from "@/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -37,6 +38,12 @@ const Signup = () => {
         setError(error.message);
         setLoading(false);
       });
+
+      // sendEmailVerification(auth.currentUser).then(() => {
+      //   console.log("email verification is send");
+      // }).catch(error => {
+      //   console.log('error')
+      // });
   };
 
   // const verifyEmail = () => {

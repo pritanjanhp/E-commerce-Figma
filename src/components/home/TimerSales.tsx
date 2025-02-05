@@ -38,30 +38,34 @@ const Timer: React.FC<TimerProps> = ({ targetDate }) => {
     () => {
       const interval = setInterval(updateTimer, 1000);
       return () => clearInterval(interval);
-    }
-    // [targetDate]
+    },
+    [targetDate]
   );
 
   return (
     <div className="flex sm:flex-row flex-col justify-between gap-8 sm:gap-4 w-full">
+      <span className="text-3xl w-[151px] mt-3">Flash Sales</span>
       <div>
         <p className="text-xs">Days</p>
         <p className="text-2xl font-bold">
           {timeLeft.days}{" "}
         </p>
       </div>
+      <div className="text-3xl text-[#E07575] mt-2">:</div>
       <div>
         <p className="text-xs">Hours</p>
         <p className="text-2xl font-bold">
           {timeLeft.hours}{" "}
         </p>
       </div>
+      <div className="text-3xl text-[#E07575] mt-2">:</div>
       <div>
-        <p className="text-xs">MInutes</p>
-        <p className="text-2xl font-bold">
+        <p className="text-xs">Minutes</p>
+        <p className="text-2xl font-bold w-[46px] h-[28px]">
           {timeLeft.minutes}{" "}
         </p>
       </div>
+      <div className="text-3xl text-[#E07575] mt-2">:</div>
       <div>
         <p className="text-xs">Seconds</p>
         <p className="text-2xl font-bold">

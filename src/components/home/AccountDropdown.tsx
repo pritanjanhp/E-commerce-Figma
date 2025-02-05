@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import SignOut from "../authentication/SignOut";
 
 const AccountDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,14 +58,15 @@ const AccountDropdown = () => {
               alt="review"
             />My Reviews
           </Link>
-          <Link href="/cart" className="flex gap-2">
+          <div className="flex gap-2">
             {" "}<Image
               src="navbar/account/logout.svg"
               width={24}
               height={24}
               alt="logout"
-            />Logout
-          </Link>
+            />{" "}
+            <SignOut />
+          </div>
         </div>}
     </div>
   );
