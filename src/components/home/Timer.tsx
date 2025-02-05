@@ -38,8 +38,8 @@ const Timer: React.FC<TimerProps> = ({ targetDate }) => {
     () => {
       const interval = setInterval(updateTimer, 1000);
       return () => clearInterval(interval);
-    },
-    [targetDate]
+    }
+    // [targetDate]
   );
 
   return (
