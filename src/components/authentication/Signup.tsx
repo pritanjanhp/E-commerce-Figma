@@ -5,12 +5,14 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   sendEmailVerification,
-  signInWithPopup
+  signInWithPopup,
+  signOut
 } from "firebase/auth";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -20,37 +22,35 @@ const Signup = () => {
 
   const provider = new GoogleAuthProvider();
   const router = useRouter();
-  
+
   const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
+        sendEmailVerification(userCredential.user).then(() => {
+          toast.success("email verification is send");
+          setLoading(false);
+          signOut(auth);
+          // toast.info("You are logged out. Please verify your email.");
+        }).catch(error => {
+          toast.error('error in verification sending '+ error.message)
+        }).finally(()=> {
+          setLoading(false);
+        });
+
         // console.log("User signed up:", userCredential.user);
-        setLoading(false);
-        // window.location.href = "/account";
-        // <Link href="/account" />;
+        toast.success('Signup Successfully')
         router.push('/account');
       })
       .catch(error => {
         // console.log("Error", error.message);
-        setError(error.message);
         setLoading(false);
+        setError(error.message);
+        toast.error('Signup error ' + error.message)
       });
-
-      // sendEmailVerification(auth.currentUser).then(() => {
-      //   console.log("email verification is send");
-      // }).catch(error => {
-      //   console.log('error')
-      // });
   };
-
-  // const verifyEmail = () => {
-  //   sendEmailVerification(auth.currentUser).then(()=> {
-  //     console.log('email verification is send')
-  //   })
-  // }
 
   const handleGoogleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,9 +61,11 @@ const Signup = () => {
         const token = credential?.accessToken;
         // window.location.href='/account'
         router.push('/account')
+        toast.success('signup with popup Successfully')
       })
       .catch(error => {
         console.log("error is " + error);
+        toast.error('popup error')
       });
   };
 
@@ -124,6 +126,7 @@ const Signup = () => {
                     onClick={handleSignUp}
                     disabled={loading}
                   >
+                    <Toaster />
                     {loading ? "Creating..." : "Create account"}
                   </button>
                   
@@ -135,6 +138,7 @@ const Signup = () => {
                       className="bg-white flex flex-row gap-2"
                       onClick={handleGoogleSignUp}
                     >
+                      <Toaster/>
                       <Image
                         src="/extra/google.svg"
                         alt="google"

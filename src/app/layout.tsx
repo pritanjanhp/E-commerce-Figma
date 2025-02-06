@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import '../styles/globals.css'
 import Navbar from "@/components/home/Navbar";
 import NavbarDiscount from "@/components/home/NavbarDiscount";
 import Footer from "@/components/home/Footer";
 import { ReactNode } from "react";
+import '../styles/globals.css'
+import "slick-carousel/slick/slick.css";  
+import "slick-carousel/slick/slick-theme.css";
 
 export const metadata: Metadata = {
   title: "Exclusive",

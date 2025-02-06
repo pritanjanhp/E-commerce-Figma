@@ -1,22 +1,38 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AccountDropdown from "./AccountDropdown";
-// import { BsCart2 } from "react-icons/bs";
-// import { CiHeart, CiSearch } from "react-icons/ci";
+import { BsCart2 } from "react-icons/bs";
+import { CiHeart, CiSearch } from "react-icons/ci";
 
 const Navbar = () => {
-  const [view, setView] = useState(false);
+  // const [view, setView] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const dropDown = useRef<HTMLDivElement | null>(null);
 
   const toggleView = () => {
-    setView(!view);
+    setIsOpen(!isOpen);
   };
 
-  const toggleOpen = () => {
-    setIsOpen(prev => !prev);
-  };
+  // const toggleOpen = () => {
+  //   setIsOpen(prev => !prev);
+  // };
+
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      if (
+        dropDown.current &&
+        !dropDown.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   return (
     <div className="p-4">
@@ -54,8 +70,9 @@ const Navbar = () => {
         <div
           className="md:hidden flex items-center cursor-pointer"
           onClick={toggleView}
+          ref={dropDown}
         >
-          {view
+          {isOpen
             ? <div className="">
                 <div className="border border-black w-6 h-0 flex items-center justify-left rotate-45 transition-all duration-300" />
                 <div className="border border-black w-6 h-0 flex items-center justify-left -rotate-45 transition-all duration-300" />
@@ -67,7 +84,7 @@ const Navbar = () => {
               </div>}
         </div>
 
-        {view &&
+        {isOpen &&
           <div className="flex flex-col md:hidden absolute sm:w-[200px] w-[200px] top-36 right-0 bg-white gap-3 sm:top-36 md:top-auto p-6 z-10">
             <Link
               href="/"
@@ -102,9 +119,9 @@ const Navbar = () => {
               />
               <h1>Search</h1>
             </Link>
-            <Link className="flex gap-2" href="/favourite">
+            <Link className="flex gap-2" href="/wishlist">
               <Image src="/navbar/fav.svg" alt="fav" width={18} height={18} />
-              <h1>Favourite</h1>
+              <h1>Wishlist</h1>
             </Link>
             <Link href="/cart" className="flex gap-2">
               <Image
@@ -141,7 +158,7 @@ const Navbar = () => {
               height={24}
             />
           </div>
-          <Link className="flex gap-2" href="/favourite">
+          <Link className="flex gap-2" href="/wishlist">
             <Image src="/navbar/fav.svg" alt="fav" width={32} height={32} />
           </Link>
           <Link href="/cart" className="flex gap-2">

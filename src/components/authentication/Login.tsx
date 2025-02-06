@@ -3,50 +3,89 @@
 import { auth } from "@/firebase";
 import {
   sendPasswordResetEmail,
-  // sendEmailVerification,
+  sendEmailVerification,
   signInWithEmailAndPassword
 } from "firebase/auth";
 import Image from "next/image";
-// import Link from "next/link";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [userVerified, setUserVerified] = useState<boolean | null>(null);
 
   const router = useRouter();
+
+  // useEffect(() => {
+  //   if (!auth.currentUser?.emailVerified) {
+  //     console.log(auth.currentUser?.emailVerified)
+  //       toast.error('verify');
+  //       router.push('/verify-email');
+  //     }
+  //   }, [auth, router]);
+
+  useEffect(
+    () => {
+      const unsubscribe = auth.onAuthStateChanged(user => {
+        if (user) {
+          if (!user.emailVerified) {
+            setUserVerified(false);
+            toast.error("please verify email");
+            router.push("/verify-email");
+          } else {
+            setUserVerified(true);
+          }
+        }
+      });
+      return () => unsubscribe();
+    },
+    [router]
+  );
+
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
     signInWithEmailAndPassword(auth, email, pwd)
       .then(userCredential => {
+        if (userCredential.user && !userCredential.user.emailVerified) {
+          toast.error("please verify first b4 log in");
+          sendEmailVerification(userCredential.user)
+            .then(() => {
+              toast.success("verification email sent. check your inbox");
+            })
+            .catch(error => {
+              toast.error(
+                "Error in sending verification email: " + error.message
+              );
+            });
+        } else {
+          toast.success("login successfully");
+          router.push("/allProduct");
+        }
         setLoading(false);
-        // window.location.href = "/allProduct";
-        router.push("/allProduct");
       })
       .catch(error => {
         setError(error.message);
+        toast.error("error " + error.message);
         setLoading(false);
       });
+    // return;
   };
-
-  // const verifyEmail = () => {
-  //   sendEmailVerification(auth.currentUser).then(() => {
-  //     console.log("email verification is send");
-  //   });
-  // };
 
   const resetPwd = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        alert("Password reset email sent");
+        toast.success("Password reset email sent");
       })
       .catch(error => {
         setError(error.message);
-        alert("error " + error.message);
+        toast.error("error " + error.message);
       });
   };
 
@@ -76,7 +115,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="email"
-                className="w-[187px] h-[24px] gap-[8px]"
+                className="w-[370px] h-[24px] gap-[8px]"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
               />
@@ -84,7 +123,7 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="password"
-                className="w-[187px] h-[24px] gap-[8px]"
+                className="w-[370px] h-[24px] gap-[8px]"
                 value={pwd}
                 onChange={e => setPwd(e.target.value)}
               />
@@ -101,6 +140,7 @@ const Login = () => {
               className="w-[143px] h-[56px] bg-[#DB4444] text-white"
               onClick={handleSignIn}
             >
+              <Toaster />
               Log in
             </button>
             {/* <button onClick={verifyEmail}>verify</button> */}

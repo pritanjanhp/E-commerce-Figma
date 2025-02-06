@@ -2,16 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 import Timer from "./TimerSales";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 import fiveStar from "../../../public/fiveStar.svg";
 import { auth } from "@/firebase";
+import ArrowNavigation from "./ArrowNavigation";
 
 const TodaySales = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(auth.currentUser);
+  // const [move, setMove] = useState(0);
+  const scrollDivRef = useRef<HTMLDivElement | null>(null);
 
   // const isLoggedIn = false;
   const targetDate = new Date("2025-02-28T00:00:00").getTime();
@@ -26,9 +29,9 @@ const TodaySales = () => {
           <div className="">
             <div className="flex flex-row gap-4 w-[126px] h-[40px]">
               <div className="w-[20px] h-[40px] bg-[#DB4444] rounded-[4px]" />
-              <span className="w-full h-[20px] text-red-400 font-bold">
+              <div className="w-full h-[20px] text-red-400 font-bold">
                 Today's
-              </span>
+              </div>
             </div>
             <div className="lg:flex lg:flex-row flex flex-col">
               {/* <span className="text-2xl w-[211px]">Flash Sales</span>  */}
@@ -65,8 +68,10 @@ const TodaySales = () => {
           </div>
         </div>
 
-        <div className="flex gap-2 sm:gap-4 w-full sm:w-auto h-auto justify-center">
-          <div className="cursor-pointer">
+        {/* <ArrowNavigation scrollDivRef={scrollDivRef} /> */}
+
+        {/* <div className="flex gap-2 sm:gap-4 w-full sm:w-auto h-auto justify-center">
+          <div className="cursor-pointer" onClick={handleLeftClick}>
             <Image
               src="/arrows/left.png"
               alt="Left Arrow"
@@ -75,7 +80,7 @@ const TodaySales = () => {
               className="bg-gray-300 rounded-full m-4"
             />
           </div>
-          <div className="cursor-pointer">
+          <div className="cursor-pointer" onClick={handleRightClick}>
             <Image
               src="/arrows/right.png"
               alt="right Arrow"
@@ -84,12 +89,15 @@ const TodaySales = () => {
               className="bg-gray-300 rounded-full m-4"
             />
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="h-[43px]" />
 
-      <div className="flex flex-col sm:flex-row w-full justify-between gap-6 sm:gap-[30px]">
+      <div
+        className="flex flex-col sm:flex-row w-full justify-between gap-6 sm:gap-[30px]"
+        ref={scrollDivRef}
+      >
         <div className="w-full sm:w-[270px] h-auto gap-6">
           <div className="bg-[#f5f5f5] relative group">
             <div className="absolute top-2 left-2 flex justify-between w-full">
@@ -185,7 +193,7 @@ const TodaySales = () => {
 
             {isLoggedIn
               ? <Link
-                  href="/login"
+                  href="/allProduct"
                   // w-[270px]
                   className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
                 >
@@ -250,7 +258,7 @@ const TodaySales = () => {
 
             {isLoggedIn
               ? <Link
-                  href="/login"
+                  href="/allProduct"
                   // w-[270px]
                   className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
                 >
@@ -315,7 +323,7 @@ const TodaySales = () => {
 
             {isLoggedIn
               ? <Link
-                  href="/login"
+                  href="/allProduct"
                   // w-[270px]
                   className="w-full h-[41px] flex justify-center items-center top-[209px] gap-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 mt-4"
                 >

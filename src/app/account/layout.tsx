@@ -120,8 +120,7 @@ const layout: React.FC<ProfileLayoutProps> = props => {
               <div
                 // className="w-[108px] h-[24px] cursor-pointer left-[270px]  opacity-50"
                 // onClick={() => router.push("/account/orders/cancellation")}
-                className={`w-[108px] h-[24px] cursor-pointer ${active ===
-                "cancellation"
+                className={`w-[105px] cursor-pointer ${active === "cancellation"
                   ? "text-[#DB4444]"
                   : "opacity-50"}`}
                 onClick={() =>
