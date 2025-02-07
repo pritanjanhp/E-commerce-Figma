@@ -4,6 +4,99 @@ import React from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 
+const pdtData = [
+  {
+    id: 1,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 2,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 3,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 4,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 5,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 6,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 7,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 8,
+    name: "Breed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  },
+  {
+    id: 9,
+    name: "wefrgtgBreed Dry Dog Food",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/products/s1.png",
+    rating: "/stars/fiveStar.svg",
+    comment: "(88)"
+  }
+];
+
 const Explore = () => {
   return (
     <div className="w-full h-full gap-[60px] gap-y-4 px-4 sm:px-8 md:px-12">

@@ -64,83 +64,127 @@ const Categories = () => {
       </div>
 
       {/* 60px */}
-      <div className="h-[40px]" />
+      {/* <div className="h-[40px]" /> */}
 
       <div className="flex-row w-full text-xs h-auto gap-[30px] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-[4px] border border-gray-400 hover:bg-[#DB4444]">
-          <Image
-            width={56}
-            height={56}
-            src="/categories/phone.svg"
-            className="top-[25px] left-[57px] gap-[0px]"
-            alt="phone"
-          />
-          <span className="eft-[55px] gap-[0px]">Phones</span>
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-3 rounded-[4px] border border-gray-400 hover:bg-[#DB4444] hover:text-white group">
+          <div className="relative">
+            <img
+              src="/categories/phone.svg"
+              width={56}
+              height={56}
+              alt="phone"
+              className="top-[25px] left-[57px] transition-opacity group-hover:opacity-0"
+            />
+            <img
+              src="/categories/phoneWhite.svg"
+              width={56}
+              height={56}
+              alt="phone"
+              className="absolute top-[1px] transition-opacity opacity-0 group-hover:opacity-100"
+            />
+          </div>
+          <span className="left-[55px] gap-[0px]">Phones</span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
-          <Image
-            width={56}
-            height={56}
-            src="/categories/computer.svg"
-            className="top-[25px] left-[57px] gap-[0px]"
-            alt="computer"
-          />
-          <span className="w-[59px] h-[24px] top-[97px] left-[55px] gap-[0px]">
-            Computers
-          </span>
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-3 rounded-[4px] border border-gray-400 hover:bg-[#DB4444] hover:text-white group">
+          <div className="relative">
+            <img
+              src="/categories/computer.svg"
+              width={56}
+              height={56}
+              alt="computer"
+              className="top-[25px] left-[57px] transition-opacity group-hover:opacity-0"
+            />
+            <img
+              src="/categories/computerWhite.svg"
+              width={56}
+              height={56}
+              alt="computer"
+              className="absolute top-[1px] transition-opacity opacity-0 group-hover:opacity-100"
+            />
+          </div>
+          <span className="left-[55px] gap-[0px]">Computer</span>
         </div>
 
-        <div className="w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none flex flex-col items-center justify-center rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
-          <Image
-            width={56}
-            height={56}
-            src="/categories/smartwatch.svg"
-            alt="smartwatch"
-            className="top-[25px] left-[57px] gap-[0px]"
-          />
-          <span className="w-[59px] h-[24px] top-[97px] left-[55px] gap-[0px]">
-            Smartwatch
-          </span>
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-3 rounded-[4px] border border-gray-400 hover:bg-[#DB4444] hover:text-white group">
+          <div className="relative">
+            <img
+              src="/categories/smartwatch.svg"
+              width={56}
+              height={56}
+              alt="smartwatch"
+              className="top-[25px] left-[57px] transition-opacity group-hover:opacity-0"
+            />
+            <img
+              src="/categories/smartwatchWhite.svg"
+              width={56}
+              height={56}
+              alt="smartwatch"
+              className="absolute top-[1px] transition-opacity opacity-0 group-hover:opacity-100"
+            />
+          </div>
+          <span className="left-[55px] gap-[0px]">SmartWatch</span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
-          <Image
-            width={56}
-            height={56}
-            src="/categories/camera.svg"
-            alt="camera"
-            className="top-[25px] left-[57px] gap-[0px]"
-          />{" "}
-          <span className="w-[59px] h-[24px] top-[97px]  text-center left-[55px] gap-[0px]">
-            Camera
-          </span>
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-3 rounded-[4px] border border-gray-400 hover:bg-[#DB4444] hover:text-white group">
+          <div className="relative">
+            <img
+              src="/categories/camera.svg"
+              width={56}
+              height={56}
+              alt="camera"
+              className="top-[25px] left-[57px] transition-opacity group-hover:opacity-0"
+            />
+            <img
+              src="/categories/cameraWhite.svg"
+              width={56}
+              height={56}
+              alt="camera"
+              className="absolute top-[1px] transition-opacity opacity-0 group-hover:opacity-100"
+            />
+          </div>
+          <span className="left-[55px] gap-[0px]">Camera</span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border border-gray-400 hover:bg-[#DB4444]">
-          <Image
-            width={56}
-            height={56}
-            src="/categories/headphones.svg"
-            alt="headphones"
-            className="top-[25px] left-[57px] gap-[0px]"
-          />{" "}
-          <span className="w-[59px] h-[24px] top-[97px] left-[55px] gap-[0px]">
-            Headphone
-          </span>
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-3 rounded-[4px] border border-gray-400 hover:bg-[#DB4444] hover:text-white group">
+          <div className="relative">
+            <img
+              src="/categories/headphones.svg"
+              width={56}
+              height={56}
+              alt="headphones"
+              className="top-[25px] left-[57px] transition-opacity group-hover:opacity-0"
+            />
+            <img
+              src="/categories/headphonesWhite.svg"
+              width={56}
+              height={56}
+              alt="headphones"
+              className="absolute top-[1px] transition-opacity opacity-0 group-hover:opacity-100"
+            />
+          </div>
+          <span className="left-[55px] gap-[0px]">Headphones</span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-[0px] rounded-tl-[4px] rounded-tr-none rounded-br-none rounded-bl-none border  hover:bg-[#DB4444] border-gray-400">
-          <Image
-            width={56}
-            height={56}
-            src="/categories/phone.svg"
-            alt="phone"
-            className="top-[25px] left-[57px] gap-[0px]"
-          />
-          <span className="w-[59px] h-[24px] top-[97px] text-center gap-[0px]">
-            Gaming
-          </span>
+        <div className="flex flex-col items-center justify-center w-[170px] h-[145px] gap-3 rounded-[4px] border border-gray-400 hover:bg-[#DB4444] hover:text-white group">
+          <div className="relative">
+            <img
+              src="/categories/gaming.svg"
+              width={56}
+              height={56}
+              alt="gaming"
+              className="top-[25px] left-[57px] transition-opacity group-hover:opacity-0"
+            />
+            <img
+              src="/categories/gamingWhite.svg"
+              width={56}
+              height={56}
+              alt="gaming"
+              className="absolute top-[1px] transition-opacity opacity-0 group-hover:opacity-100"
+            />
+          </div>
+          <span className="left-[55px] gap-[0px]">Gaming</span>
         </div>
       </div>
     </div>

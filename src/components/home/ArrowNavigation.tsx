@@ -6,17 +6,30 @@ interface ArrowNavigationProps {
 }
 const ArrowNavigation: React.FC<ArrowNavigationProps> = ({ scrollDivRef }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  // const handleLeftClick = () => {
+  //   if (scrollDivRef.current) {
+  //     scrollDivRef.current.scrollLeft -= 100;
+  //   }
+  // };
+
+  // const handleRightClick = () => {
+  //   if (scrollDivRef.current) {
+  //     scrollDivRef.current.scrollLeft += 100;
+  //   }
+  // };
+
   const handleLeftClick = () => {
     if (scrollDivRef.current) {
-      scrollDivRef.current.scrollLeft -= 100;
+      scrollDivRef.current.scrollBy({ left: -100, behavior: "smooth" });
     }
   };
-
+  
   const handleRightClick = () => {
     if (scrollDivRef.current) {
-      scrollDivRef.current.scrollLeft += 100;
+      scrollDivRef.current.scrollBy({ left: 100, behavior: "smooth" });
     }
   };
+  
 
   // const handleLeftClick = () => {
   //   console.log("left clicked");

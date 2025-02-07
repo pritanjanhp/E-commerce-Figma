@@ -7,7 +7,6 @@ import { HiArrowSmallRight } from "react-icons/hi2";
 const Sidebar = () => {
   const [view, setView] = useState(false);
   const [slider, setSlider] = useState(0);
-  // const [sliderText, setSliderText] = useState(0);
   const dropDown = useRef<HTMLDivElement | null>(null);
 
   const toggleView = () => {
