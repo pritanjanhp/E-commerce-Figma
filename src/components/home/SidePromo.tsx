@@ -127,7 +127,12 @@ const Sidebar = () => {
         <div className="flex flex-col md:flex-row w-full lg:h-[354px] sm:w-full md:w-auto gap-4 bg-black text-white sm:px-4 md:px-14 py-4 md:py-14 relative">
           <div className="sm:flex flex-col gap-6 w-full md:w-[294px] m-2 p-2">
             <div className="flex items-center gap-4">
-              <Image src="/apple.png" alt="apple" width={40} height={49} />
+              <Image
+                src="/promo/apple.png"
+                alt="apple"
+                width={40}
+                height={49}
+              />
               <span className="text-xl text-center sm:items-center">
                 {/* iPhone 14 Series */}
                 {slidesName[slider]}
