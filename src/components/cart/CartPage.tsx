@@ -1,9 +1,9 @@
 "use client";
 
-import { auth } from "@/firebase";
+import { auth } from "@/lib/firebase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const CartPage = () => {
   const [user, setUser] = useState(auth.currentUser);

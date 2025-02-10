@@ -6,7 +6,7 @@ import React, { useRef, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 import Timer from "./TimerSales";
-import { auth } from "@/firebase";
+import { auth } from "@/lib/firebase";
 import ArrowNavigation from "./ArrowNavigation";
 
 const pdtData = [

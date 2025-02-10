@@ -1,9 +1,11 @@
-import AllProduct from "@/components/home/AllProduct";
 import React from "react";
+import ProductDetails from "../productDetails/page";
+import AllProduct from "../productDetails/page";
 
 const page = () => {
   return (
     <div>
+      {/* <ProductDetails /> */}
       <AllProduct />
     </div>
   );

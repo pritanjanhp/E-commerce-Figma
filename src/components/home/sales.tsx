@@ -7,7 +7,7 @@ import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 import Timer from "./TimerSales";
-import { auth } from "@/firebase";
+import { auth } from "@/lib/firebase";
 
 const productData = [
   {
