@@ -1,12 +1,14 @@
+import DisplayProduct from "@/components/crud/DisplayProduct";
+import GameProduct from "@/components/productData/GameProduct";
 import React from "react";
-import ProductDetails from "../productDetails/page";
-import AllProduct from "../productDetails/page";
 
 const page = () => {
   return (
     <div>
-      {/* <ProductDetails /> */}
-      <AllProduct />
+      {/* <GameProduct /> */}
+      <DisplayProduct />
+
+      {/* <DisplayProduct category="gaming" /> */}
     </div>
   );
 };

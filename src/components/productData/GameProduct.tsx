@@ -51,7 +51,7 @@ const pdtData = [
   }
 ];
 
-const AllProduct: React.FC = () => {
+const GameProduct: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(auth.currentUser);
   const [cnt, setCnt] = useState(0);
   const router = useRouter();
@@ -70,7 +70,9 @@ const AllProduct: React.FC = () => {
             Home
           </button>
           <div className="opacity-50"> / </div>
-          <button className="opacity-50">Gaming</button>
+          <button className="opacity-50" onClick={() => router.push("/gaming")}>
+            Gaming
+          </button>
           <div className="opacity-50"> / </div>
           <button className="">Havic HV G-92 Gamepad</button>
         </div>
@@ -335,4 +337,4 @@ const AllProduct: React.FC = () => {
   );
 };
 
-export default AllProduct;
+export default GameProduct;

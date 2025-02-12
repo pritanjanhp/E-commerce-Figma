@@ -4,9 +4,9 @@ import React from "react";
 import Timer from "./TimerBlack";
 
 const CategoriesBlack = () => {
-  const targetDate = new Date("2025-02-19T00:00:00").getTime();
+  const targetDate = new Date("2025-03-09T00:00:00").getTime();
   return (
-    <div className="w-full md:w-full lg:h-[500px] h-auto gap-4 bg-[#000000] px-4 sm:px-8 md:px-12">
+    <div className="w-full md:w-full lg:h-[500px] h-auto gap-4 bg-[#000000] px-4 sm:px-8 md:px-12 lg:w-[1180px] lg:ml-16">
       <div className="flex flex-col lg:flex-row w-full justify-center items-center gap-4">
         <div className="flex flex-col mt-20 w-full max-w-xl lg:max-w-none gap-7 justify-center lg:justify-start ">
           <div className="w-[90px] h-[20px] text-green-500 font-bold">
@@ -20,29 +20,6 @@ const CategoriesBlack = () => {
             <Timer targetDate={targetDate} />
           </div>
 
-          {/* <div className="flex flex-row lg:justify-start w-full gap-[24px] justify-center">
-            <div className="flex flex-col w-[62px] h-[62px] bg-white rounded-full items-center justify-center">
-              <span>23 </span>
-              <span>Hours</span>
-            </div>
-            <div className="flex flex-col w-[62px] h-[62px] bg-white rounded-full items-center justify-center">
-              <span>05 </span>
-              <span>Days</span>
-            </div>
-            <div className="flex flex-col w-[62px] h-[62px] bg-white rounded-full items-center justify-center">
-              <span>59 </span>
-              <span>Min</span>
-            </div>
-            <div className="flex flex-col w-[62px] h-[62px] bg-white  rounded-full items-center justify-center">
-              <span>35 </span>
-              <span>Sec</span>
-            </div>
-          </div> */}
-
-          {/* <div className="lg:w-[171px] w-full h-[56px] p-4 px-12 gap-2.5 rounded-md text-white bg-green-500 lg:justify-start justify-center">
-            <button className="">Buy Now!</button>
-          </div> */}
-
           <div className="flex lg:justify-start justify-center items-center">
             <Link
               href="/cart"
@@ -52,7 +29,6 @@ const CategoriesBlack = () => {
             </Link>
           </div>
         </div>
-
         <div className="">
           <Image
             width={800}

@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { HiArrowSmallRight } from "react-icons/hi2";
 
 const Sidebar = () => {
   const [view, setView] = useState(false);
@@ -56,7 +55,6 @@ const Sidebar = () => {
     <div className="px-4 sm:px-8 md:px-12">
       <div className="w-full h-full flex flex-col md:flex-row md:justify-around justify-between sm:justify-between items-center mt-7 pt-4 gap-4 relative">
         <div className="md:flex hidden flex-col w-full h-full lg:h-[344px] sm:w-auto top-[182px] left-[135px] md:gap-[16px] gap-3 md:w-[200px] sm:h-auto sm:top-auto md:top-[182px] md:left-[135px] md:justify-between">
-          {/* <div className="flex flex-row">  */}
           <a className="flex items-center justify-between cursor-pointer">
             Woman’s Fashion
             <Image src="/extra/right.svg" alt="right" width={24} height={24} />
@@ -72,8 +70,6 @@ const Sidebar = () => {
           <a className="cursor-pointer">Baby’s & Toys</a>
           <a className="cursor-pointer">Groceries & Pets</a>
           <a className="cursor-pointer">Health & Beauty</a>
-          {/* </div> */}
-          {/* <div className="w-[384px] h-[0px] top-[142px] left-[368px] gap-0px border-0.5px 0px 0px 0px opacity-30 rotate-90 deg border border-black" /> */}
         </div>
 
         <div
@@ -123,7 +119,6 @@ const Sidebar = () => {
           </div>}
 
         <div className="md:block w-0 border border-gray-300 md:h-[450px] bg-red-500" />
-
         <div className="flex flex-col md:flex-row w-full lg:h-[354px] sm:w-full md:w-auto gap-4 bg-black text-white sm:px-4 md:px-14 py-4 md:py-14 relative">
           <div className="sm:flex flex-col gap-6 w-full md:w-[294px] m-2 p-2">
             <div className="flex items-center gap-4">
@@ -182,13 +177,6 @@ const Sidebar = () => {
               />
             )}
           </div>
-          {/* <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-2">
-            <div className="w-3 h-3 bg-gray-500 rounded-full hover:bg-[#DB4444]" />
-            <div className="w-[12px] h-[12px] bg-gray-500 hover:bg-[#DB4444] rounded-full" />
-            <div className="w-[12px] h-[12px] bg-gray-500 hover:bg-[#DB4444] rounded-full" />
-            <div className="w-[12px] h-[12px] bg-gray-500 hover:bg-[#DB4444] rounded-full" />
-            <div className="w-[12px] h-[12px] bg-gray-500 hover:bg-[#DB4444] rounded-full" />
-          </div> */}
         </div>
       </div>
     </div>

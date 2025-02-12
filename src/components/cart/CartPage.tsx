@@ -8,7 +8,8 @@ import React, { useState } from "react";
 const CartPage = () => {
   const [user, setUser] = useState(auth.currentUser);
   const router = useRouter();
-  let cart = 1;
+  let cart = 0;
+
   return (
     <div className="w-full h-full px-4 sm:px-8 md:px-16 lg:px-32 lg:gap-[32px] lg:mt-20 mt-5">
       <div className="flex w-full h-full sm:justify-between justify-between">

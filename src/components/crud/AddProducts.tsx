@@ -6,10 +6,10 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import toast, { Toaster } from "react-hot-toast";
 
-export const AddProducts: React.FC = () => {
+const AddProducts: React.FC = () => {
   const [productName, setProductName] = useState<string>("");
-  const [productOldPrice, setProductOldPrice] = useState<number>(0);
   const [productNewPrice, setProductNewPrice] = useState<number>(0);
+  const [productOldPrice, setProductOldPrice] = useState<number>(0);
   const [productdiscount, setProductDiscout] = useState<number>(0);
   const [productComment, setProductComment] = useState<number>(0);
   const [newArrival, setNewArrival] = useState<number>();
@@ -32,12 +32,11 @@ export const AddProducts: React.FC = () => {
         newPrice: productNewPrice,
         discount: productdiscount,
         comment: productComment,
-        arrival: newArrival,
+        // arrival: newArrival,
         Categories: productCategory,
         rating: productRating,
         createdAt: new Date().getTime()
       });
-
       setProductName("");
       setProductOldPrice(0);
       setProductNewPrice(0);
@@ -107,7 +106,7 @@ export const AddProducts: React.FC = () => {
             value={productComment}
           />
         </div>
-        <div>
+        {/* <div>
           <label className="block text-gray-700">New Product</label>
           <input
             type="number"
@@ -115,7 +114,7 @@ export const AddProducts: React.FC = () => {
             onChange={e => setNewArrival(Number(e.target.value))}
             value={newArrival}
           />
-        </div>
+        </div> */}
         <div>
           <label className="block text-gray-700">Product Category</label>
           <select
@@ -124,7 +123,7 @@ export const AddProducts: React.FC = () => {
             onChange={e => setProductCategory(e.target.value)}
             value={productCategory}
           >
-            <option value="">Select Product Category</option>
+            <option value="phones">Select Product Category</option>
             <option value="phones">Phones</option>
             <option value="computers">Computers</option>
             <option value="smartWatch">SmartWatch</option>
@@ -168,3 +167,5 @@ export const AddProducts: React.FC = () => {
     </div>
   );
 };
+
+export default AddProducts;

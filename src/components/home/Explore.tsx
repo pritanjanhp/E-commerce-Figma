@@ -1,107 +1,46 @@
+"use client";
+
+import { auth, db } from "@/lib/firebase";
+import { collection, onSnapshot } from "firebase/firestore";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 
 const pdtData = [
-  {
-    id: 1,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 2,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 3,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 4,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 5,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 6,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 7,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 8,
-    name: "Breed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  },
-  {
-    id: 9,
-    name: "wefrgtgBreed Dry Dog Food",
-    price: "$120",
-    oldPrice: "$160",
-    discount: "-40%",
-    image: "/products/s1.png",
-    rating: "/stars/fiveStar.svg",
-    comment: "(88)"
-  }
+  { img: "/products/p1.png", rating: "/stars/fiveStar.svg" },
+  { img: "/products/p2.png", rating: "/stars/fourHalfStar.svg" },
+  { img: "/products/p3.png", rating: "/stars/fourStar.svg" },
+  { img: "/products/p6.png", rating: "/stars/oneStar.svg" },
+  { img: "/products/p7.png", rating: "/stars/oneStar.svg" },
+  { img: "/products/p10.png", rating: "/stars/oneStar.svg" },
+  { img: "/products/p9.png", rating: "/stars/oneStar.svg" },
+  { img: "/products/p7.png", rating: "/stars/oneStar.svg" }
 ];
 
 const Explore = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(auth.currentUser);
+  const [currIdx, setCurrIdx] = useState(0);
+  const [product, setProduct] = useState<any[]>([]);
+  const items = 8;
+
+  if (isLoggedIn === null) {
+    <Link href="/signup" />;
+  }
+
+  useEffect(() => {
+    if (!auth) return;
+    const ref = collection(db, "products");
+    onSnapshot(ref, snapshot => {
+      setProduct(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    });
+  }, []);
+
   return (
-    <div className="w-full h-full gap-[60px] gap-y-4 px-4 sm:px-8 md:px-12">
+    <div className="flex flex-col w-full h-full px-4 sm:px-8 md:px-12">
       <div className="w-full h-full gap-[60px]">
-        <div className="flex flex-row w-full h-[108px] gap-[672px]">
+        <div className="flex flex-row w-full h-[108px] gap-3 lg:px-3">
           <div className="w-[398px] h-[108px] gap-5">
             <div className="flex flex-row gap-[16px] w-[142px] h-[40px]">
               <div className="w-[20px] h-[40px] bg-[#DB4444] rounded-sm" />
@@ -116,56 +55,20 @@ const Explore = () => {
               </div>
             </div>
           </div>
-
-          {/* <div className="flex ml-auto items-center w-[100px] h-[46px] gap-x-0 m-11 ">
-            <div className="w-[46px] h-[46px]">
-              <Image
-                src="/arrows/leftArrow.svg"
-                alt="Left Arrow"
-                width={24}
-                height={24}
-                className="bg-gray-300 rounded-full text-xs"
-              />
-            </div>
-            <div className="w-[46px] h-[46px]">
-              <Image
-                className="bg-gray-300 rounded-full text-xs"
-                src="/arrows/rightArrow.svg"
-                alt="right Arrow"
-                width={24}
-                height={24}
-              />
-            </div>
-          </div> */}
-
-          {/* <div className="flex gap-2 sm:gap-2 w-full sm:w-auto h-auto">
-            <div className="cursor-pointer">
-              <Image
-                src="/arrows/left.png"
-                alt="Left Arrow"
-                width={34}
-                height={34}
-                className="bg-gray-300 rounded-full m-4"
-              />
-            </div>
-            <div className="cursor-pointer">
-              <Image
-                src="/arrows/right.png"
-                alt="right Arrow"
-                width={34}
-                height={34}
-                className="bg-gray-300 rounded-full m-4"
-              />
-            </div>
-          </div> */}
         </div>
-
-        <div className="grid xl:grid-cols-4 sm:grid-cols-1 lg:grid-cols-3 md:grid-cols-2 w-full h-full gap-[30px]">
-          {/* <div className="flex flex-row w-[1170px] h-[322px] gap-[30px]"> */}
-          <div className="w-full h-[322px] gap-5 lg:justify-start justify-center items-center">
-            <div className="w-full h-[250px] gap-1 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 right-2 flex flex-col gap-4">
-                <div className="flex flex-col gap-4 items-end mr-4 p-2">
+      </div>
+      <div className="flex flex-col gap-12">
+        <div className="flex-row w-full h-auto gap-1 grid sm:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-4">
+          {product.slice(currIdx, currIdx + items).map((pdt: any, index: any) =>
+            <div
+              key={pdt.id}
+              className="flex flex-col gap-2 p-4 rounded-md relative group"
+            >
+              <div className="bg-[#F5F5F5]">
+                <div className="absolute top-7 left-7 bg-[#DB4444] text-white px-2 py-1 rounded">
+                  {pdt.discount} %
+                </div>
+                <div className="absolute top-6 right-6 gap-2 flex flex-col">
                   <Link
                     href="/wishlist"
                     className="bg-white rounded-full p-2 text-xl"
@@ -176,249 +79,82 @@ const Explore = () => {
                     <AiOutlineEye />
                   </div>
                 </div>
-              </div>
-              <div className="flex justify-center">
-                <Image
-                  src="/products/p5.jpeg"
-                  width={115}
-                  height={180}
-                  alt="p5.jpeg"
-                  className="mt-8"
-                />
-              </div>
-            </div>
+                {/* <div className="absolute top-7 right-7 gap-3 flex flex-col">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
+                  <Image
+                    src="/icons/heart.svg"
+                    alt="heart"
+                    width={34}
+                    height={34}
+                  />
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                  <Image
+                    src="/icons/eye.svg"
+                    alt="eye"
+                    width={34}
+                    height={34}
+                  />
+                </div>
+              </div> */}
+                <div className="flex justify-center top-4 relative">
+                  <Image
+                    src={pdtData[index % pdtData.length].img}
+                    width={190}
+                    height={180}
+                    alt="pdt-img"
+                    className="lg:mt-5"
+                  />
+                </div>
 
-            <div className="w-[185px] h-[56px] gap-[8px] lg:justify-start justify-center items-center">
-              <div className="w-[158px] h-[24x] gap-0 md:justify-start justify-center items-center">
-                Breed Dry Dog Food
+                {isLoggedIn
+                  ? <Link
+                      href="/allProduct"
+                      className="block text-center bg-black text-white py-2 mt-4 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      Add to cart
+                    </Link>
+                  : <Link
+                      href="/signup"
+                      className="block text-center bg-black text-white py-2 mt-4 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      Login to Add to cart
+                    </Link>}
+              </div>
+              <div className="block text-lg">
+                {" "}{pdt.name}{" "}
+              </div>
+              <div className="flex gap-3">
+                <div className="text-[#DB4444]">
+                  {pdt.newPrice}
+                </div>
+                <div className="line-through opacity-50">
+                  {pdt.oldPrice}{" "}
+                </div>
               </div>
               <div className="flex gap-2">
-                <span className="text-red-400">$260 </span>
-                <Image
-                  src="/stars/threeStars.svg"
-                  alt="three_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="">(35)</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full h-[350px] gap-[16px]">
-            <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 right-2 flex flex-col gap-4">
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <Link
-                    href="/wishlist"
-                    className="bg-white rounded-full p-2 text-xl"
-                  >
-                    <CiHeart />
-                  </Link>
-                  <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </div>
+                <div>
+                  <Image
+                    src={pdtData[2].rating}
+                    alt="rating"
+                    width={100}
+                    height={20}
+                  />
+                </div>
+                <div className="opacity-50">
+                  {" "}({pdt.comment}){" "}
                 </div>
               </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/products/p6.png"
-                  width={170}
-                  height={180}
-                  alt="p6.png"
-                  className="mt-8"
-                />
-              </div>
             </div>
+          )}
 
-            <div className="w-[208px] h-[56px] gap-[8px]">
-              <span className="w-[208px] h-[24x] gap-0">
-                CANON EOS DSLR Camera
-              </span>
-              <div className="flex gap-2 w-[189px] h-[24px]">
-                <span className="text-red-400">$360 </span>
-                {/* <span className="line-through mr-28">$360</span> */}
-                <Image
-                  src="/stars/fourStar.svg"
-                  alt="four_star"
-                  width={140}
-                  height={20}
-                  priority
-                />
-                <span className="w-[32px] h-[20px] text-gray-500">(95)</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full h-[322px] gap-[16px]">
-            <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 right-2 flex flex-col gap-4">
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <Link
-                    href="/wishlist"
-                    className="bg-white rounded-full p-2 text-xl"
-                  >
-                    <CiHeart />
-                  </Link>
-                  <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/products/p7.png"
-                  width={190}
-                  height={180}
-                  alt="p7.png"
-                  className="mt-8"
-                />
-              </div>
-            </div>
-
-            <div className="w-[206px] h-[56px] gap-[8px]">
-              <span className="w-[206px] h-[24x] gap-0">
-                ASUS FHD Gaming Laptop
-              </span>
-
-              <div className="flex gap-2 w-[196px] h-[24px]">
-                <span className="text-red-400 w-[40px] h-[24px]">$700 </span>
-                {/* <span className="line-through mr-28">$360</span> */}
-                <Image
-                  src="/stars/fiveStar.svg"
-                  alt="fiver_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[40px] h-[20px]">(325)</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full h-[322px] gap-[16px]">
-            <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 right-2 flex flex-col gap-4">
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <Link
-                    href="/wishlist"
-                    className="bg-white rounded-full p-2 text-xl"
-                  >
-                    <CiHeart />
-                  </Link>
-                  <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center items-center">
-                <Image
-                  src="/products/p8.png"
-                  width={172}
-                  height={159}
-                  alt="p8.png"
-                  className="-mt-10"
-                />
-              </div>
-            </div>
-
-            {/* <div className="w-[206px] h-[56px] gap-[8px]">
-              <span className="w-[206px] h-[24x] gap-0">
-                ASUS FHD Gaming Laptop
-              </span>
-
-              
-                <span className="text-red-400 w-[40px] h-[24px]">$700 </span>
-                
-                <Image
-                  src="/stars/fiveStar.svg"
-                  alt="fiver_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[40px] h-[20px]">(325)</span>
-              </div>
-            </div> */}
-
-            <div className="w-[198px] h-[56px] gap-[8px]">
-              <span className="w-[171px] h-[24x] gap-0">
-                Curology Product Set
-              </span>
-
-              {/* <span className="line-through mr-28">$360</span> */}
-
-              <div className="flex gap-2 w-[148px] h-[20px]">
-                <span className="text-red-400 w-[42px] h-[24px]">$500 </span>
-                <Image
-                  src="/stars/fourStar.svg"
-                  alt="four_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[40px] h-[20px]">(145)</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full h-[350px] gap-[16px]">
-            <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 left-2 flex justify-between w-full">
-                <div className="w-[51px] h-[26px] text-center justify-center rounded-[4px] bg-[#00FF66] text-white">
-                  NEW
-                </div>
-
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <Link
-                    href="/wishlist"
-                    className="bg-white rounded-full p-2 text-xl"
-                  >
-                    <CiHeart />
-                  </Link>
-                  <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/products/p9.png"
-                  width={180}
-                  height={83}
-                  alt="p9.png"
-                  className="mt-8"
-                />
-              </div>
-            </div>
-
-            <div className="w-[198px] h-[84px] gap-11">
-              <span className="w-[130px] h-[24x] gap-0">Kids Electric car</span>
-              <div className="flex gap-2 w-[180px] h-[24px]">
-                <span className="text-red-500 w-[42px] h-[24px]">$960 </span>
-                <Image
-                  src="/stars/fiveStar.svg"
-                  alt="five_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[40px] h-[20px] text-gray-500">(65)</span>
-              </div>
-              <div className="gap-2 flex">
-                {/* <span>circle 1</span>
-                <span>circle 2</span> */}
-                {/* 20px */}
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full h-[350px] gap-[16px]">
-            <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 right-2 flex flex-col gap-4 ">
+          {/* <div className="w-full  h-[350px] gap-[16px]">
+          <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="absolute top-2 right-2 flex flex-col gap-4">
+              <div className="flex flex-col gap-4 items-end mr-4">
                 <Link
                   href="/wishlist"
                   className="bg-white rounded-full p-2 text-xl"
@@ -429,101 +165,41 @@ const Explore = () => {
                   <AiOutlineEye />
                 </div>
               </div>
-
-              <div className="flex justify-center ">
-                <Image
-                  src="/products/p10.png"
-                  width={190}
-                  height={80}
-                  alt="p10.png"
-                  className="mt-8"
-                />
-              </div>
             </div>
-
-            <div className="w-[191px] h-[84px] gap-[8px]">
-              <span className="w-[185px] h-[24x] gap-0">
-                Jr.Zoom Soocer Cleats
-              </span>
-              <div className="flex gap-2 w-[190px] h-[24px]">
-                <span className="text-red-500 w-[42px] h-[24px]">$1160 </span>
-                <Image
-                  src="/stars/fourStar.svg"
-                  alt="four_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[32px] h-[20px] text-gray-500">(35)</span>
-              </div>
-              <div className="gap-2 flex">
-                {/* <span>circle 1</span>
-                <span>circle 2</span> */}
-                {/* 20px */}
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-              </div>
+            <div className="flex justify-center">
+              <Image
+                src="/products/p1.png"
+                width={190}
+                height={180}
+                alt="p1.png"
+                className="mt-8"
+              />
             </div>
           </div>
 
-          <div className="w-full h-[350px] gap-[16px]">
-            <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 left-2 flex justify-between w-full">
-                <div className="w-[51px] h-[26px] text-center justify-center rounded-[4px] bg-[#00FF66] text-white">
-                  NEW
-                </div>
-
-                <div className="flex flex-col gap-4 items-end mr-4">
-                  <Link
-                    href="/wishlist"
-                    className="bg-white rounded-full p-2 text-xl"
-                  >
-                    <CiHeart />
-                  </Link>
-                  <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
-                    <AiOutlineEye />
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/products/p11.png"
-                  width={290}
-                  height={280}
-                  alt="p11.png"
-                  className="mt-8"
-                />
-              </div>
+          <div className="">
+            <div className="gap-0">The north coat</div>
+            <div className="flex gap-2">
+              <span className="text-red-400">$260 </span>
+              <span className="line-through">$360</span>
             </div>
-
-            <div className="w-[221px] h-[84px] gap-[8px]">
-              <span className="w-[211px] h-[24x] gap-0">
-                GP11 Shooter USB Gamepad
-              </span>
-              <div className="flex gap-2 w-[190px] h-[24px]">
-                <span className="text-red-500 w-[42px] h-[24px]">$960 </span>
-                <Image
-                  src="/stars/fiveStar.svg"
-                  alt="five_star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[32px] h-[20px]">(55)</span>
-              </div>
-              <div className="gap-2 flex">
-                {/* <span>circle 1</span>
-                <span>circle 2</span> */}
-                {/* 20px */}
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-              </div>
-            </div>
+            <span className="flex gap-[8px]">
+              <Image
+                src="/stars/fiveStar.svg"
+                alt="five_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="">(65)</span>
+            </span>
           </div>
+        </div> */}
 
-          <div className="w-full h-[350px] gap-[16px]">
-            <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
-              <div className="absolute top-2 right-2 flex flex-col gap-4 ">
+          {/* <div className="w-full h-[350] gap-[16px]">
+          <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="absolute top-2 right-2 flex flex-col gap-4">
+              <div className="flex flex-col gap-4 items-end mr-4">
                 <Link
                   href="/wishlist"
                   className="bg-white rounded-full p-2 text-xl"
@@ -534,59 +210,133 @@ const Explore = () => {
                   <AiOutlineEye />
                 </div>
               </div>
-              <div className="flex justify-center ">
-                <Image
-                  src="/products/p12.png"
-                  width={190}
-                  height={180}
-                  alt="p12.png"
-                  className="mt-8"
-                />
-              </div>
             </div>
-
-            <div className="w-[190px] h-[84px] gap-4">
-              <span className="w-[162px] h-[24x]">Quilted Satin Jacket</span>
-              <div className="flex gap-2 w-[190px] h-[24px]">
-                <span className="text-red-500 w-[42px] h-[24px]">$660 </span>
-                <Image
-                  src="/stars/fourHalfStar.svg"
-                  alt="fourHalf_Star"
-                  width={100}
-                  height={20}
-                  priority
-                />
-                <span className="w-[32px] h-[20px]">(55)</span>
-              </div>
-              <div className="gap-2 flex">
-                {/* <span>circle 1</span>
-                <span>circle 2</span> */}
-                {/* 20px */}
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-                <div className="w-[12px] h-[12px] bg-black hover:bg-[#DB4444] rounded-full" />
-              </div>
+            <div className="flex justify-center">
+              <Image
+                src="/products/p2.png"
+                width={140}
+                height={146}
+                alt="p2.png"
+                className="mt-8"
+              />
             </div>
           </div>
+
+          <div className="">
+            <span className="gap-0">Gucci duffle bag</span>
+            <div className="flex gap-2">
+              <span className="text-red-400">$960 </span>
+              <span className="line-through">$1160</span>
+            </div>
+            <span className="flex gap-[8px]">
+              <Image
+                src="/stars/fourHalfStar.svg"
+                alt="fourHalf_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="">(65)</span>
+            </span>
+          </div>
+        </div> */}
+
+          {/* <div className="w-full h-[350px] gap-[16px]">
+          <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="absolute top-2 right-2 flex flex-col gap-4">
+              <div className="flex flex-col gap-4 items-end mr-4">
+                <Link
+                  href="/wishlist"
+                  className="bg-white rounded-full p-2 text-xl"
+                >
+                  <CiHeart />
+                </Link>
+                <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                  <AiOutlineEye />
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <Image
+                src="/products/p3.png"
+                width={191}
+                height={95}
+                alt="p3.png"
+                className="mt-8"
+              />
+            </div>
+          </div>
+
+          <div className="">
+            <span className="gap-0">RGB CPU Liquid</span>
+            <div className="flex gap-2">
+              <span className="text-red-400">$160 </span>
+              <span className="line-through mr-28">$170</span>
+            </div>
+            <span className="flex w-[140px] h-[20px] gap-[8px]">
+              <Image
+                src="/stars/fourStar.svg"
+                alt="four_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="w-[32px] h-[20px]">(85)</span>
+            </span>
+          </div>
+        </div> */}
+
+          {/* <div className="w-full h-[350px] gap-[16px]">
+          <div className="w-full h-[250px] gap-0 bg-[#f5f5f5] relative">
+            <div className="absolute top-2 right-2 flex flex-col gap-4 items-end mr-4">
+              <Link
+                href="/wishlist"
+                className="bg-white rounded-full p-2 text-xl"
+              >
+                <CiHeart />
+              </Link>
+              <div className="bg-white rounded-full p-2 text-xl cursor-pointer">
+                <AiOutlineEye />
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <Image
+                src="/products/p4.png"
+                width={190}
+                height={180}
+                alt="p4.png"
+                className="mt-8"
+              />
+            </div>
+          </div>
+
+          <div className="">
+            <span className="gap-0">Small BookSelf</span>
+            <div className="flex gap-2">
+              <span className="text-red-400">$360 </span>
+            </div>
+            <span className="flex gap-[8px]">
+              <Image
+                src="/stars/fiveStar.svg"
+                alt="five_star"
+                width={100}
+                height={20}
+                priority
+              />
+              <span className="">(65)</span>
+            </span>
+          </div>
+        </div> */}
         </div>
-        {/* </div> */}
-      </div>
 
-      {/* <div className="flex justify-center w-[900px] h-[116px]m-32">
-        <Link
-          href="allProduct"
-          className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[0px] rounded-tl-none rounded-tr-[4px] rounded-bl-[4px] rounded-br-sm  bg-[#DB4444] text-center ml-56"
-        >
-          View All Product
-        </Link>
-      </div> */}
-
-      <div className="flex justify-center items-center">
-        <Link
-          href="/allProduct"
-          className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[10px] rounded-tl-[4px] rounded-tr-[4px] rounded-bl-[4px] rounded-br-[4px] bg-[#DB4444] hover:bg-red-400 text-white text-center"
-        >
-          View All Product
-        </Link>
+        <div className="flex justify-center items-center">
+          <Link
+            href="/allProduct"
+            className="w-[234px] h-[56px] px-[48px] py-[16px] gap-[10px] rounded-tl-[4px] rounded-tr-[4px] rounded-bl-[4px] rounded-br-[4px] bg-[#DB4444] hover:bg-red-400 text-white text-center"
+          >
+            View All Product
+          </Link>
+        </div>
       </div>
     </div>
   );
