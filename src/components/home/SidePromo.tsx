@@ -76,6 +76,7 @@ const Sidebar = () => {
           className="md:hidden flex items-center cursor-pointer"
           onClick={toggleView}
           ref={dropDown}
+          
         >
           {view
             ? <div className="absolute left-3 top-0">
